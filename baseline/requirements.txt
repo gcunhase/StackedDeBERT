@@ -1,0 +1,20 @@
+# Watson
+ibm-watson
+watson-developer-cloud
+mock
+numpy
+pandas
+scikit-learn
+scipy
+matplotlib
+aiohttp
+# Rasa
+rasa
+rasa_nlu
+spacy
+sklearn_crfsuite
+tensorflow
+pandas_ml
+unicodecsv
+# Wit.ai
+wit
