@@ -1,0 +1,201 @@
+sentence	label	missing	target
+when is _ _ train to garching 	1	the next 	when is the next train to garching
+when is _ _ subway leaving from garching? 	0	the next 	when is the next subway leaving from garching?
+how can i get _ garching _ milbertshofen? 	1	from to 	how can i get from garching to milbertshofen?
+could _ give _ _ fastest connection between brudermühlstraße and alte heide? 	1	you me the 	could you give me the fastest connection between brudermühlstraße and alte heide?
+can _ find a _ from quiddestraße to lehel? 	1	you bus 	can you find a bus from quiddestraße to lehel?
+when is _ _ u6 leaving from garching? 	0	the next 	when is the next u6 leaving from garching?
+how can i get from garching forschungszentrum to kurt-eisner-straße?	1		how can i get from garching forschungszentrum to kurt-eisner-straße?
+when the next train in garching is leaving?	0		when the next train in garching is leaving?
+hey bot, when does _ _ _ starts at garching? 	0	the next bus 	hey bot, when does the next bus starts at garching?
+_ _ a train from neuperlach zentrum to garching _ 3 pm? 	1	is there at 	is there a train from neuperlach zentrum to garching at 3 pm?
+when is the next train from garching	0		when is the next train from garching
+when the next train in garching,forschungszentrum is leaving?	0		when the next train in garching,forschungszentrum is leaving?
+can i take a bus from quiddestraße to hauptbahnhof?	1		can i take a bus from quiddestraße to hauptbahnhof?
+when will _ _ u-bahn depart from garching forschungszentrum? 	0	the next 	when will the next u-bahn depart from garching forschungszentrum?
+when is _ next train 	0	the 	when is the next train
+i _ to be in garching _ 9 	1	need at 	i need to be in garching at 9
+how can i get from garching to hauptbahnhof?	1		how can i get from garching to hauptbahnhof?
+when is _ _ train leaving in garching 	0	the next 	when is the next train leaving in garching
+how can i get _ garching to _ 	1	from marienplatz 	how can i get from garching to marienplatz
+show me the next bus from michaelibad.	0		show me the next bus from michaelibad.
+_ from hauptbahnhof to odeonsplatz? 	1	connection 	connection from hauptbahnhof to odeonsplatz?
+how to get from _ strassaecker _ to frötmaning 	1	untere 21 	how to get from untere strassaecker 21 to frötmaning
+when is the next train leaving in garching	0		when is the next train leaving in garching
+_ is adrians _ subway leaving at garching forschungszentrum? 	0	when next 	when is adrians next subway leaving at garching forschungszentrum?
+how can i get from quiddestraße to boltzmannstraße?	1		how can i get from quiddestraße to boltzmannstraße?
+when is the next train from untere straßaecker 21 to kieferngarten	1		when is the next train from untere straßaecker 21 to kieferngarten
+when comes _ next train 	0	the 	when comes the next train
+when is the next subway leaving from garching?	0		when is the next subway leaving from garching?
+when is _ _ train in nordfriedhof 	0	the next 	when is the next train in nordfriedhof
+how _ i get from _ zu garching 	1	do marienplatz 	how do i get from marienplatz zu garching
+when is _ next u6? 	0	the 	when is the next u6?
+in need to be at hauptbahnhof at 1 pm, can you search a connection from garching forschungszentrum?	1		in need to be at hauptbahnhof at 1 pm, can you search a connection from garching forschungszentrum?
+when is the next bus in garching forschungszentrum	0		when is the next bus in garching forschungszentrum
+what's the shortest way between hauptbahnhof and odeonsplatz?	1		what's the shortest way between hauptbahnhof and odeonsplatz?
+when does the next train leaves from quiddestraße?	0		when does the next train leaves from quiddestraße?
+is there a bus from garching to moosach at around 5?	1		is there a bus from garching to moosach at around 5?
+when is the next train from nordfriedhof to garching forschungszentrum	1		when is the next train from nordfriedhof to garching forschungszentrum
+can you give me a connection from garching to odeonsplatz?	1		can you give me a connection from garching to odeonsplatz?
+what is _ cheapest connection between _ and hauptbahnhof? 	1	the quiddestraße 	what is the cheapest connection between quiddestraße and hauptbahnhof?
+how can i get _ _ tor? 	1	to sendlinger 	how can i get to sendlinger tor?
+when is the next train in münchner freiheit?	0		when is the next train in münchner freiheit?
+when is _ _ bus leaving from garching? 	0	the next 	when is the next bus leaving from garching?
+when does _ _ bus leaves at garching forschungszentrum? 	0	the next 	when does the next bus leaves at garching forschungszentrum?
+when _ _ train in garching is leaving? 	0	the next 	when the next train in garching is leaving?
+what is the cheapest connection between quiddestraße and hauptbahnhof?	1		what is the cheapest connection between quiddestraße and hauptbahnhof?
+how to get from _ to _ 	1	bonnerplatz freimann 	how to get from bonnerplatz to freimann
+how can i get from garchingto garching?	1		how can i get from garchingto garching?
+i _ a _ from harras to karl-preis-platz _ 8 am. 	1	need connection at 	i need a connection from harras to karl-preis-platz at 8 am.
+_ there a _ from _ to hauptbahnhof at 3 pm? 	1	is bus odeonsplatz 	is there a bus from odeonsplatz to hauptbahnhof at 3 pm?
+when is the next bus leaving from garching?	0		when is the next bus leaving from garching?
+how can i get _ _ garching? 	1	from garchingto 	how can i get from garchingto garching?
+when is the train leaving in garching?	0		when is the train leaving in garching?
+when does _ _ train starts at sendlinger tor? 	0	the next 	when does the next train starts at sendlinger tor?
+how can i get from kurt-eisner-straße to garching?	1		how can i get from kurt-eisner-straße to garching?
+when does the next bus leaves from hauptbahnhof?	0		when does the next bus leaves from hauptbahnhof?
+how _ i get to _ straussäcker? 	1	do untere 	how do i get to untere straussäcker?
+when does the next train come at garching forschungszentrum	0		when does the next train come at garching forschungszentrum
+can you find the shortest way from moosfeld to milbertshofen?	1		can you find the shortest way from moosfeld to milbertshofen?
+when does _ _ train come at garching forschungszentrum 	0	the next 	when does the next train come at garching forschungszentrum
+can you find a connection from olympiazentrum to lehel at 2 pm?	1		can you find a connection from olympiazentrum to lehel at 2 pm?
+i need a connection from harras to karl-preis-platz at 8 am.	1		i need a connection from harras to karl-preis-platz at 8 am.
+is there a bus from odeonsplatz to hauptbahnhof at 3 pm?	1		is there a bus from odeonsplatz to hauptbahnhof at 3 pm?
+from garching to perlach	1		from garching to perlach
+from garching to _ 	1	studentenstadt 	from garching to studentenstadt
+how can i get to neuperlach süd from garching forschungszentrum?	1		how can i get to neuperlach süd from garching forschungszentrum?
+how can i get from garching to _ freiheit _ _ _ possible? 	1	münchner as fast as 	how can i get from garching to münchner freiheit as fast as possible?
+when does _ _ s-bahn leaves from hauptbahnhof? 	0	the next 	when does the next s-bahn leaves from hauptbahnhof?
+how can i get to _ _ _ garching forschungszentrum? 	1	neuperlach süd from 	how can i get to neuperlach süd from garching forschungszentrum?
+when does the next train leave from garching forschungszentrum	0		when does the next train leave from garching forschungszentrum
+_ _ the next bus from garching! 	0	show me 	show me the next bus from garching!
+how can i get _ _ to garching forschungszentrum? 	1	from moosach 	how can i get from moosach to garching forschungszentrum?
+when does _ next train leaves? 	0	the 	when does the next train leaves?
+when is the next train from garching	0		when is the next train from garching
+how can i get from garching to sendlinger tor?	1		how can i get from garching to sendlinger tor?
+from garching to studentenstadt	1		from garching to studentenstadt
+when is _ bus from quiddestraße? 	0	the 	when is the bus from quiddestraße?
+_ is _ train leaving in garching? 	0	when the 	when is the train leaving in garching?
+how can i get from moosach to garching forschungszentrum?	1		how can i get from moosach to garching forschungszentrum?
+when the next train in garching forschungszentrum is leaving?	0		when the next train in garching forschungszentrum is leaving?
+_ _ a _ from garching to moosach at around 5? 	1	is there bus 	is there a bus from garching to moosach at around 5?
+how can i get from mossach to garching forschungszentrum?	1		how can i get from mossach to garching forschungszentrum?
+when does the next train leaves from odeonsplatz?	0		when does the next train leaves from odeonsplatz?
+when does _ _ to röblingweg starts? 	0	the bus 	when does the bus to röblingweg starts?
+when does the next train departs from quiddestraße?	0		when does the next train departs from quiddestraße?
+when will the next u-bahn depart from garching forschungszentrum?	0		when will the next u-bahn depart from garching forschungszentrum?
+when does the next subway departes from odeonsplatz?	0		when does the next subway departes from odeonsplatz?
+when does the next train leaves?	0		when does the next train leaves?
+how can i get to milbertshofen from garching?	1		how can i get to milbertshofen from garching?
+next bus from quiddestraße?	0		next bus from quiddestraße?
+what's _ cheapest way from _ süd to lehel? 	1	the neuperlach 	what's the cheapest way from neuperlach süd to lehel?
+how can i get from garching to garching?	1		how can i get from garching to garching?
+connection from untere straßäcker 21 to kieferngarten	1		connection from untere straßäcker 21 to kieferngarten
+what _ _ _ connection from garching forschungszentrum to odeonsplatz? 	1	is the next 	what is the next connection from garching forschungszentrum to odeonsplatz?
+hey bot, when does the next bus starts at garching?	0		hey bot, when does the next bus starts at garching?
+how can i get to quiddestraße?	1		how can i get to quiddestraße?
+how can i get _ _ to garching forschungszentrum? 	1	from mossach 	how can i get from mossach to garching forschungszentrum?
+when does the next bus leaves at garching forschungszentrum?	0		when does the next bus leaves at garching forschungszentrum?
+how can i get to _ _ garching? 	1	milbertshofen from 	how can i get to milbertshofen from garching?
+when is _ _ bus in garching forschungszentrum 	0	the next 	when is the next bus in garching forschungszentrum
+how can i get to _ _ quiddestraße? 	1	boltzmannstraße from 	how can i get to boltzmannstraße from quiddestraße?
+how can i get from garching to milbertshofen?	1		how can i get from garching to milbertshofen?
+how can i get _ garching forschungszentrum _ kurt-eisner-straße? 	1	from to 	how can i get from garching forschungszentrum to kurt-eisner-straße?
+when does _ _ bus leave in garching? 	0	the next 	when does the next bus leave in garching?
+show me the next bus from garching!	0		show me the next bus from garching!
+when does _ _ train leave from garching forschungszentrum 	0	the next 	when does the next train leave from garching forschungszentrum
+how to get from untere strassaecker 21 to frötmaning	1		how to get from untere strassaecker 21 to frötmaning
+how can i get _ garching _ garching? 	1	from to 	how can i get from garching to garching?
+how do i get from olympia einkaufszentrum to hauptbahnhof?	1		how do i get from olympia einkaufszentrum to hauptbahnhof?
+connection from hauptbahnhof to odeonsplatz?	1		connection from hauptbahnhof to odeonsplatz?
+when does the next bus leave in garching?	0		when does the next bus leave in garching?
+when is the train leaving in garching	0		when is the train leaving in garching
+is there a tram from karlsplatz to lehel?	1		is there a tram from karlsplatz to lehel?
+how to get from _ _ 21 to frötmaning 	1	untere strassäcker 	how to get from untere strassäcker 21 to frötmaning
+when is adrians next subway leaving at garching forschungszentrum?	0		when is adrians next subway leaving at garching forschungszentrum?
+how to get from untere strassäcker 21 to frötmaning	1		how to get from untere strassäcker 21 to frötmaning
+when is the next train	0		when is the next train
+how can i get from garching to münchner freiheit as fast as possible?	1		how can i get from garching to münchner freiheit as fast as possible?
+_ _ the next bus from michaelibad. 	0	show me 	show me the next bus from michaelibad.
+when does the next rocket leaves from garching forschungszentrum?	0		when does the next rocket leaves from garching forschungszentrum?
+_ is _ _ train from untere straßaecker 21, garching to kieferngarten 	1	when the next 	when is the next train from untere straßaecker 21, garching to kieferngarten
+when does the next train starts at sendlinger tor?	0		when does the next train starts at sendlinger tor?
+when is the next u6 leaving from garching?	0		when is the next u6 leaving from garching?
+what's the cheapest way from neuperlach süd to lehel?	1		what's the cheapest way from neuperlach süd to lehel?
+what's _ _ way between hauptbahnhof and odeonsplatz? 	1	the shortest 	what's the shortest way between hauptbahnhof and odeonsplatz?
+how can i get from garching to odeonsplatz?	1		how can i get from garching to odeonsplatz?
+how can i get _ kurt-eisner-straße _ garching? 	1	from to 	how can i get from kurt-eisner-straße to garching?
+when does _ _ bus leaves at garching? 	0	the next 	when does the next bus leaves at garching?
+when does the next bus leaves at garching?	0		when does the next bus leaves at garching?
+how can i get _ garching, forschungszentrum _ odeonsplatz? 	1	from to 	how can i get from garching, forschungszentrum to odeonsplatz?
+when does _ _ subway departes from odeonsplatz? 	0	the next 	when does the next subway departes from odeonsplatz?
+_ from _ straßäcker 21 to kieferngarten 	1	connection untere 	connection from untere straßäcker 21 to kieferngarten
+how can i get _ _ to boltzmannstraße? 	1	from quiddestraße 	how can i get from quiddestraße to boltzmannstraße?
+i _ to _ from garching to odeonsplatz? 	1	want travel 	i want to travel from garching to odeonsplatz?
+when does the next bus leaves at romanplatz?	0		when does the next bus leaves at romanplatz?
+how can i get from garching, forschungszentrum to odeonsplatz?	1		how can i get from garching, forschungszentrum to odeonsplatz?
+can you find a bus from quiddestraße to lehel?	1		can you find a bus from quiddestraße to lehel?
+when is _ _ train from garching 	0	the next 	when is the next train from garching
+in _ to _ _ hauptbahnhof _ 1 pm, can _ search a _ from garching forschungszentrum? 	1	need be at at you connection 	in need to be at hauptbahnhof at 1 pm, can you search a connection from garching forschungszentrum?
+how can i get _ garching forschungszentrum _ odeonsplatz? 	1	from to 	how can i get from garching forschungszentrum to odeonsplatz?
+what is the next connection from garching forschungszentrum to odeonsplatz?	1		what is the next connection from garching forschungszentrum to odeonsplatz?
+how can i get from neuperlach zentrum to karlsplatz as fast as possible?	1		how can i get from neuperlach zentrum to karlsplatz as fast as possible?
+how can i get from olympiazentrum to hauptbahnhof?	1		how can i get from olympiazentrum to hauptbahnhof?
+how can i get from garching to marienplatz	1		how can i get from garching to marienplatz
+can i take a _ from _ to hauptbahnhof? 	1	bus quiddestraße 	can i take a bus from quiddestraße to hauptbahnhof?
+how can i get _ garching _ odeonsplatz? 	1	from to 	how can i get from garching to odeonsplatz?
+can _ tell _ _ cheapest way from garching forschungszentrum to quiddestraße? 	1	you me the 	can you tell me the cheapest way from garching forschungszentrum to quiddestraße?
+how do i get to untere straussäcker?	1		how do i get to untere straussäcker?
+how can i get to sendlinger tor?	1		how can i get to sendlinger tor?
+when does _ _ train leaves from quiddestraße? 	0	the next 	when does the next train leaves from quiddestraße?
+how to get from bonnerplatz to freimann	1		how to get from bonnerplatz to freimann
+when does _ _ tram starts from hauptbahnhof? 	0	the next 	when does the next tram starts from hauptbahnhof?
+when does _ _ rocket leaves from garching forschungszentrum? 	0	the next 	when does the next rocket leaves from garching forschungszentrum?
+_ can i get a _ at mariahilfplatz? 	0	when bus 	when can i get a bus at mariahilfplatz?
+how can i get _ quiddestraße? 	1	to 	how can i get to quiddestraße?
+_ bus from quiddestraße? 	0	next 	next bus from quiddestraße?
+_ is _ train leaving in garching 	0	when the 	when is the train leaving in garching
+how can i get _ garching to _ tor? 	1	from sendlinger 	how can i get from garching to sendlinger tor?
+can you tell me the cheapest way from garching forschungszentrum to quiddestraße?	1		can you tell me the cheapest way from garching forschungszentrum to quiddestraße?
+when is the bus from quiddestraße?	0		when is the bus from quiddestraße?
+when does _ _ bus leaves from hauptbahnhof? 	0	the next 	when does the next bus leaves from hauptbahnhof?
+when does _ _ bus leaves at romanplatz? 	0	the next 	when does the next bus leaves at romanplatz?
+when _ _ train in garching,forschungszentrum is leaving? 	0	the next 	when the next train in garching,forschungszentrum is leaving?
+when is the next train from untere straßaecker 21, garching to kieferngarten	1		when is the next train from untere straßaecker 21, garching to kieferngarten
+how to get from garching to perlach?	1		how to get from garching to perlach?
+_ is _ _ train from nordfriedhof to garching forschungszentrum 	1	when the next 	when is the next train from nordfriedhof to garching forschungszentrum
+can _ _ _ shortest way from moosfeld to milbertshofen? 	1	you find the 	can you find the shortest way from moosfeld to milbertshofen?
+when does the bus to röblingweg starts?	0		when does the bus to röblingweg starts?
+how can i get from garching forschungszentrum to odeonsplatz?	1		how can i get from garching forschungszentrum to odeonsplatz?
+when _ _ train in garching forschungszentrum is leaving? 	0	the next 	when the next train in garching forschungszentrum is leaving?
+is there a train from neuperlach zentrum to garching at 3 pm?	1		is there a train from neuperlach zentrum to garching at 3 pm?
+i want to travel from garching to odeonsplatz?	1		i want to travel from garching to odeonsplatz?
+how can i get _ _ to hauptbahnhof? 	1	from olympiazentrum 	how can i get from olympiazentrum to hauptbahnhof?
+how can i get to boltzmannstraße from quiddestraße?	1		how can i get to boltzmannstraße from quiddestraße?
+_ _ a tram from karlsplatz to lehel? 	1	is there 	is there a tram from karlsplatz to lehel?
+could you give me the fastest connection between brudermühlstraße and alte heide?	1		could you give me the fastest connection between brudermühlstraße and alte heide?
+can _ _ a connection from olympiazentrum to _ at 2 pm? 	1	you find lehel 	can you find a connection from olympiazentrum to lehel at 2 pm?
+can _ give _ a _ from garching to odeonsplatz? 	1	you me connection 	can you give me a connection from garching to odeonsplatz?
+when is the next train in nordfriedhof?	0		when is the next train in nordfriedhof?
+how can i get _ garching _ hauptbahnhof? 	1	from to 	how can i get from garching to hauptbahnhof?
+when can i get a bus at mariahilfplatz?	0		when can i get a bus at mariahilfplatz?
+how _ i get from _ einkaufszentrum to hauptbahnhof? 	1	do olympia 	how do i get from olympia einkaufszentrum to hauptbahnhof?
+what's the shortest connection between quiddestraße and odeonsplatz?	1		what's the shortest connection between quiddestraße and odeonsplatz?
+when does the next tram starts from hauptbahnhof?	0		when does the next tram starts from hauptbahnhof?
+when does _ _ train departs from quiddestraße? 	0	the next 	when does the next train departs from quiddestraße?
+what's _ shortest connection between _ and odeonsplatz? 	1	the quiddestraße 	what's the shortest connection between quiddestraße and odeonsplatz?
+when comes the next train	0		when comes the next train
+i need to be in garching at 9	1		i need to be in garching at 9
+when does the next s-bahn leaves from hauptbahnhof?	0		when does the next s-bahn leaves from hauptbahnhof?
+_ is _ _ train from untere straßaecker 21 to kieferngarten 	1	when the next 	when is the next train from untere straßaecker 21 to kieferngarten
+how can i get from _ _ to _ as fast as possible? 	1	neuperlach zentrum karlsplatz 	how can i get from neuperlach zentrum to karlsplatz as fast as possible?
+when is the next train in nordfriedhof	0		when is the next train in nordfriedhof
+how do i get from marienplatz zu garching	1		how do i get from marienplatz zu garching
+when does _ _ train leaves from odeonsplatz? 	0	the next 	when does the next train leaves from odeonsplatz?
+how _ get _ garching _ perlach? 	1	to from to 	how to get from garching to perlach?
+when is the next u6?	0		when is the next u6?
+when is _ _ train in münchner freiheit? 	0	the next 	when is the next train in münchner freiheit?
+when is _ _ train in nordfriedhof? 	0	the next 	when is the next train in nordfriedhof?
+from garching to _ 	1	perlach 	from garching to perlach
+when is _ _ train from garching 	0	the next 	when is the next train from garching
+when is the next train to garching	1		when is the next train to garching

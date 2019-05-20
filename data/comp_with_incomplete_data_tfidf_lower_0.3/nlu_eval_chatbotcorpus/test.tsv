@@ -1,0 +1,107 @@
+sentence	label	missing	target
+when is _ _ bus from garching forschungzentrum 	0	the next 	when is the next bus from garching forschungzentrum
+how _ i get from _ to hbf? 	1	do oez 	how do i get from oez to hbf?
+how i can get _ _ to garching 	1	from marienplatz 	how i can get from marienplatz to garching
+how can i get _ _ to garching forschungszentrum? 	1	from feldmoching 	how can i get from feldmoching to garching forschungszentrum?
+i _ to go marienplatz 	1	want 	i want to go marienplatz
+how can i get from _ freiheit to _ 	1	münchner odeonsplatz 	how can i get from münchner freiheit to odeonsplatz
+how can i get _ garching to _ 	1	from odeonsplatz 	how can i get from garching to odeonsplatz
+_ train from muenchen freicheit 	0	next 	next train from muenchen freicheit
+what is _ _ train from münchner freiheit 	0	the next 	what is the next train from münchner freiheit
+how can i get _ _ to odeonsplatz? 	1	from hauptbahnhof 	how can i get from hauptbahnhof to odeonsplatz?
+can _ _ a _ from kurt-eisner-straße to garching forschungszentrum? 	1	you find connection 	can you find a connection from kurt-eisner-straße to garching forschungszentrum?
+how i can get _ _ to garching? 	1	from marienplatz 	how i can get from marienplatz to garching?
+when does _ _ train leaves at garching? 	0	the next 	when does the next train leaves at garching?
+_ train from garching 	0	next 	next train from garching
+when is _ _ subway from garching forschungszentrum 	0	the next 	when is the next subway from garching forschungszentrum
+how _ i get from garching forschungszentrum to _ 	1	do pasing 	how do i get from garching forschungszentrum to pasing
+when is _ _ s-bahn leaving at garching? 	0	the next 	when is the next s-bahn leaving at garching?
+when does _ _ subway departs at garching 	0	the next 	when does the next subway departs at garching
+when is _ _ train in garching? 	0	the next 	when is the next train in garching?
+how can i get _ _ to odeonsplatz? 	1	from moosach 	how can i get from moosach to odeonsplatz?
+depart _ garching, i assume 	0	in 	depart in garching, i assume
+when is _ _ train leaving in garching forschungszentrum 	0	the next 	when is the next train leaving in garching forschungszentrum
+_ from garching to hauptbahnhof? 	1	connection 	connection from garching to hauptbahnhof?
+how can i get _ garching forschungszentrum to _ 	1	from prinzregentenplatz 	how can i get from garching forschungszentrum to prinzregentenplatz
+what's _ shortest way from _ to odeonsplatz? 	1	the quiddestraße 	what's the shortest way from quiddestraße to odeonsplatz?
+how to get from _ _ to freimann? 	1	bonner platz 	how to get from bonner platz to freimann?
+_ is _ _ rocket from winterstraße 12 to kieferngarte 	1	when the next 	when is the next rocket from winterstraße 12 to kieferngarte
+how can i get to _ _ garching forschungszentrum? 	1	glockenbachviertel from 	how can i get to glockenbachviertel from garching forschungszentrum?
+prinzregentenplatz to rotkreuzplatz 	1		prinzregentenplatz to rotkreuzplatz
+how can i get from _ to _ 	1	hauptbahnhof odeonsplatz 	how can i get from hauptbahnhof to odeonsplatz
+can _ _ a connection from garching to hauptbahnhof? 	1	you find 	can you find a connection from garching to hauptbahnhof?
+i _ to go to garching from _ 	1	want marienplatz 	i want to go to garching from marienplatz
+_ from boltzmannstraße to kieferngarten 	1	connection 	connection from boltzmannstraße to kieferngarten
+take _ to the airport 	1	me 	take me to the airport
+how to get from _ _ to marienplatz 	1	alte heide 	how to get from alte heide to marienplatz
+when does _ _ bus starts from garching? 	0	the next 	when does the next bus starts from garching?
+_ subway from garching forschungszentrum 	0	next 	next subway from garching forschungszentrum
+how can i get _ _ to marienplatz? 	1	from klinkum 	how can i get from klinkum to marienplatz?
+how i can get from garching to _ _ 	1	neuperlach sued 	how i can get from garching to neuperlach sued
+_ bus from garching, please. 	0	next 	next bus from garching, please.
+how can i get _ _ to garching 	1	from mangfallplatz 	how can i get from mangfallplatz to garching
+_ does _ train leaving in garching forschungszentrum 	0	when the 	when does the train leaving in garching forschungszentrum
+_ bus from central station 	0	next 	next bus from central station
+from _ to petershausen 	1	marienplatz 	from marienplatz to petershausen
+how can i get _ _ to garching 	1	from mangfallplatz 	how can i get from mangfallplatz to garching
+how can i get _ _ to quiddestraße? 	1	from moosach 	how can i get from moosach to quiddestraße?
+from _ to garching? 	1	quiddestraße 	from quiddestraße to garching?
+how can i get to _ 	1	hohenlindenerstraße 	how can i get to hohenlindenerstraße
+when does _ _ u-bahn leaves from garching forschungszentrum? 	0	the next 	when does the next u-bahn leaves from garching forschungszentrum?
+or _ from garching 	0	depart 	or depart from garching
+_ is _ _ train from winterstraße 12 to kieferngarten 	1	when the next 	when is the next train from winterstraße 12 to kieferngarten
+how can i get to _ _ garching forschungszentrum? 	1	glockenbachviertel from 	how can i get to glockenbachviertel from garching forschungszentrum?
+start: neufahrn end:garching 	1		start: neufahrn end:garching
+from garching to _ 	1	hauptbahnhof 	from garching to hauptbahnhof
+how can i get to _ 	1	hohenlindenerstr 	how can i get to hohenlindenerstr
+when does _ _ bus departs from garching? 	0	the next 	when does the next bus departs from garching?
+how _ i get from _ to poccistraße? 	1	do spitzingplatz 	how do i get from spitzingplatz to poccistraße?
+neufahrn to garching 	1		neufahrn to garching
+theresienstraße to assling 	1		theresienstraße to assling
+from _ to hackerbrücke 	1	harthaus 	from harthaus to hackerbrücke
+when is _ _ train in alte heide? 	0	the next 	when is the next train in alte heide?
+how can i get _ kurt-eisner-straße _ garching forschungszentrum? 	1	from to 	how can i get from kurt-eisner-straße to garching forschungszentrum?
+how can i get _ _ to poccistraße? 	1	from moosach 	how can i get from moosach to poccistraße?
+how can i get _ _ to garching 	1	from neufahrn 	how can i get from neufahrn to garching
+when does _ _ u-bahn departs at garching forschungszentrum? 	0	the next 	when does the next u-bahn departs at garching forschungszentrum?
+how i can get from _ _ to nordfriedhof? 	1	munchner freiheit 	how i can get from munchner freiheit to nordfriedhof?
+find connection from hauptbahnhof to _ 	1	odeonsplatz 	find connection from hauptbahnhof to odeonsplatz
+when is _ _ train in munchner freiheit? 	0	the next 	when is the next train in munchner freiheit?
+when does _ _ u6 leave from garching forschungszentrum 	0	the next 	when does the next u6 leave from garching forschungszentrum
+how can i get _ _ to garching 	1	from studentenstadt 	how can i get from studentenstadt to garching
+when is _ _ bus from ostbahnhof 	0	the next 	when is the next bus from ostbahnhof
+_ bus from garching. 	0	next 	next bus from garching.
+from garching foschungszentrum to _ 	1	odeonsplatz 	from garching foschungszentrum to odeonsplatz
+from garching to _ 	1	klinikum 	from garching to klinikum
+i _ to go garching from _ 	1	want marienplatz 	i want to go garching from marienplatz
+from garching to _ 	1	marienplatz 	from garching to marienplatz
+can _ _ a connection from _ to garching forschungszentrum? 	1	you find quiddestraße 	can you find a connection from quiddestraße to garching forschungszentrum?
+how to get from _ _ to garching ? 	1	münchner freiheit 	how to get from münchner freiheit to garching ?
+how i can get _ _ to garching? 	1	from marienplatz 	how i can get from marienplatz to garching?
+when is _ train from garching 	0	the 	when is the train from garching
+how can i get from _ to _ east? 	1	theresienstraße munich 	how can i get from theresienstraße to munich east?
+how to get from _ _ 21 to fröttmaning 	1	untere strassäcker 	how to get from untere strassäcker 21 to fröttmaning
+_ is _ train from garching to marienplatz 	1	when the 	when is the train from garching to marienplatz
+how can i get _ _ to quiddestraße? 	1	from moosach 	how can i get from moosach to quiddestraße?
+when is _ _ train in muncher freiheit? 	0	the next 	when is the next train in muncher freiheit?
+hello munich city bot! how _ i get from _ _ to scheidplatz? 	1	do münchner freiheit 	hello munich city bot! how do i get from münchner freiheit to scheidplatz?
+how to get from winterstrasse _ to _ 	1	12 fröttmaning 	how to get from winterstrasse 12 to fröttmaning
+implerstraße to ostbahnhof 	1		implerstraße to ostbahnhof
+when does _ _ bus starts at garching? 	0	the next 	when does the next bus starts at garching?
+how can i get _ _ to garching forschungszentrum 	1	from theresienstrasse 	how can i get from theresienstrasse to garching forschungszentrum
+take me from hauptbahnhof to _ 	1	odeonsplatz 	take me from hauptbahnhof to odeonsplatz
+harthaus to hackerbrücke 	1		harthaus to hackerbrücke
+from olympia einkaufszentrum to _ 	1	hauptbahnhof 	from olympia einkaufszentrum to hauptbahnhof
+how can i _ from garching forschungszentrum to _ 	1	go prinzregentenplatz 	how can i go from garching forschungszentrum to prinzregentenplatz
+tell _ _ next bus from garching 	0	me the 	tell me the next bus from garching
+_ next bus from garching forschungzentrum 	0	the 	the next bus from garching forschungzentrum
+from _ to rotkreuzplatz 	1	prinzregentenplatz 	from prinzregentenplatz to rotkreuzplatz
+_ bus in garching 	0	next 	next bus in garching
+when is _ _ bus from garching 	0	the next 	when is the next bus from garching
+how _ i get from _ to laim 	1	do poccistraße 	how do i get from poccistraße to laim
+from _ to garching? 	1	hauptbahnhof 	from hauptbahnhof to garching?
+how i can get _ garching to _ 	1	from nordfriedhof 	how i can get from garching to nordfriedhof
+_ bus from garching 	0	next 	next bus from garching
+when does _ _ u-bahn departs at garching? 	0	the next 	when does the next u-bahn departs at garching?
+when does _ _ u-bahn depart at garching? 	0	the next 	when does the next u-bahn depart at garching?
+how can i get _ garching forschungszentrum to _ 	1	from marienplatz 	how can i get from garching forschungszentrum to marienplatz
