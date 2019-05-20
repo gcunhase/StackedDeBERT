@@ -34,5 +34,9 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 ./run_stacked_debert_dae_classifier.sh
 ```
 > Make sure the OUTPUT directory is the same as the trained BERT or copy the BERT model to your new output dir.
 
+## Acknowledgment
+* Dataset: [Snips](https://github.com/snipsco/nlu-benchmark) and [NLU Evaluation Corpora](https://github.com/sebischair/NLU-Evaluation-Corpora)
+* HuggingFace's [BERT PyTorch code](https://github.com/huggingface/pytorch-pretrained-BERT)
+
 ## Credits
 In case you wish to use this code, please credit this repository or send me an email at `gwena.cs@gmail.com` with any requests or questions.
