@@ -53,13 +53,12 @@ for dataset in dataset_arr:
     request = sapcai.Request(REQUEST_TOKEN, 'en')
 
     if complete:
-        data_dir_path = "/mnt/gwena/Gwena/IntentionClassifier/data/processed/"
-        if 'snips' not in dataset:
-            data_dir_path += "nlu_eval/"
+        data_dir_path = "StackedDeBERT/data/complete_data/"
     else:
-        data_dir_path = "/mnt/gwena/Gwena/IncompleteIntentionClassifier/data/incomplete_data_tfidf_lower_{}/".format(perc)
-        if 'snips' not in dataset:
-            data_dir_path += "nlu_eval_"
+        data_dir_path = "StackedDeBERT/data/incomplete_data_tfidf_lower_{}/".format(perc)
+
+    if 'snips' not in dataset:
+        data_dir_path += "nlu_eval_"
     data_dir_path += "{}/test_sap.csv".format(dataset.lower())
 
     # Read .csv file

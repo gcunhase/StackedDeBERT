@@ -9,8 +9,6 @@ import operator
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-__author__ = "Gwena Cunha"
-
 
 '''INCOMPLETE CODE, tf-idf code seems weird'''
 

@@ -89,7 +89,7 @@ if complete:
     data_dir_name_arr = ['AskUbuntu', 'Chatbot', 'WebApplication', 'snips']
     results_root_dir += '/complete'
 else:
-    root_data_dir = '/mnt/gwena/Gwena/IncompleteIntentionClassifier/data/comp_with_incomplete_data_tfidf_lower_{}/'.format(perc)
+    root_data_dir = 'StackedDeBERT/data/comp_with_incomplete_data_tfidf_lower_{}/'.format(perc)
     data_dir_name_arr = ['nlu_eval_askubuntucorpus', 'nlu_eval_chatbotcorpus', 'nlu_eval_webapplicationscorpus', 'snips']
     results_root_dir += '/comp_inc_{}'.format(perc)
 

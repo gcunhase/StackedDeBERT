@@ -39,4 +39,4 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 ./run_stacked_debert_dae_classifier.sh
 * HuggingFace's [BERT PyTorch code](https://github.com/huggingface/pytorch-pretrained-BERT)
 
 ## Credits
-In case you wish to use this code, please credit this repository or send me an email at `gwena.cs@gmail.com` with any requests or questions.
+In case you wish to use this code, please credit this repository or send me an email at `WILL BE ADDED AFTER ACEEPTANCE` with any requests or questions.

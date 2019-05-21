@@ -2,8 +2,6 @@ import os
 import numpy as np
 import csv
 
-__author__ = "Gwena Cunha"
-
 
 INTENTION_TAGS = {
     'snips': {'AddToPlaylist': 0,

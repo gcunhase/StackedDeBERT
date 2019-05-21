@@ -18,19 +18,15 @@ for perc in [0.1]:  # , 0.2, 0.3, 0.4, 0.5, 0.8]:
 
         for type in ['test', 'train']:
             # Data dir path
-            data_dir_path = "/mnt/gwena/Gwena/"
+            data_dir_path = "StackedDeBERT/data/"
             if complete:
-                data_dir_path += "IncompleteIntentionClassifier/data/complete_data/"
-                if 'snips' in dataset:
-                    data_dir_path += "{}/{}.tsv".format(dataset.lower(), type)
-                else:
-                    data_dir_path += "nlu_eval_{}/{}.tsv".format(dataset.lower(), type)
+                data_dir_path += "complete_data/"
             else:
-                data_dir_path += "IncompleteIntentionClassifier/data/incomplete_data_tfidf_lower_{}/".format(perc)
-                if 'snips' in dataset:
-                    data_dir_path += "{}/{}.tsv".format(dataset.lower(), type)
-                else:
-                    data_dir_path += "nlu_eval_{}/{}.tsv".format(dataset.lower(), type)
+                data_dir_path += "incomplete_data_tfidf_lower_{}/".format(perc)
+            if 'snips' in dataset:
+                data_dir_path += "{}/{}.tsv".format(dataset.lower(), type)
+            else:
+                data_dir_path += "nlu_eval_{}/{}.tsv".format(dataset.lower(), type)
 
             tsv_file = open(data_dir_path)
             reader = csv.reader(tsv_file, delimiter='\t')

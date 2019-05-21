@@ -58,9 +58,9 @@ for dataset_name in ['ChatbotCorpus', 'AskUbuntuCorpus', 'WebApplicationsCorpus'
 
     if 'snips' in dataset_name:
         if complete_data:
-            data_dir_path = "/mnt/gwena/Gwena/IntentionClassifier/data/processed/{}/train_luis.json".\
+            data_dir_path = "StackedDeBERT/data/complete_data/{}/train_luis.json".\
                 format(dataset_name.lower())
-            data_dir_path_test = "/mnt/gwena/Gwena/IntentionClassifier/data/processed/{}/test_luis.json".\
+            data_dir_path_test = "StackedDeBERT/data/complete_data/{}/test_luis.json".\
                 format(dataset_name.lower())
         else:
             data_dir_path = os.path.join(root_dir, "comp_with_incomplete_data_tfidf_lower_{}/{}/train_luis.json".
@@ -69,9 +69,9 @@ for dataset_name in ['ChatbotCorpus', 'AskUbuntuCorpus', 'WebApplicationsCorpus'
                                               format(perc, dataset_name.lower()))
     else:
         if complete_data:
-            data_dir_path = "/mnt/gwena/Gwena/IntentionClassifier/data/processed/nlu_eval/{}/train_luis.json".\
+            data_dir_path = "StackedDeBERT/data/complete_data/nlu_eval_{}/train_luis.json".\
                 format(dataset_name.lower())
-            data_dir_path_test = "/mnt/gwena/Gwena/IntentionClassifier/data/processed/nlu_eval/{}/test_luis.json".\
+            data_dir_path_test = "StackedDeBERT/data/processed_nlu_eval/{}/test_luis.json".\
                 format(dataset_name.lower())
         else:
             data_dir_path = os.path.join(root_dir, "comp_with_incomplete_data_tfidf_lower_{}/nlu_eval_{}/"

@@ -15,20 +15,16 @@ for perc in [0.1, 0.2, 0.3, 0.4, 0.5, 0.8]:
         tags = INTENTION_TAGS[dataset]
 
         for type in ['train', 'test']:
-            data_dir_path = "/mnt/gwena/Gwena/"
+            data_dir_path = "StackedDeBERT/data/"
             if complete:
-                data_dir_path += "IntentionClassifier/data/processed/"
-                if 'snips' in dataset:
-                    data_dir_path += "{}/{}.tsv".format(dataset.lower(), type)
-                else:
-                    data_dir_path += "nlu_eval/{}/{}.tsv".format(dataset.lower(), type)
+                data_dir_path += "complete_data/"
             else:
-                data_dir_path += "IncompleteIntentionClassifier/data/" \
-                                 "incomplete_data_tfidf_lower_{}/".format(perc)
-                if 'snips' in dataset:
-                    data_dir_path += "{}/{}.tsv".format(dataset.lower(), type)
-                else:
-                    data_dir_path += "nlu_eval_{}/{}.tsv".format(dataset.lower(), type)
+                data_dir_path += "incomplete_data_tfidf_lower_{}/".format(perc)
+
+            if 'snips' in dataset:
+                data_dir_path += "{}/{}.tsv".format(dataset.lower(), type)
+            else:
+                data_dir_path += "nlu_eval_{}/{}.tsv".format(dataset.lower(), type)
 
             # Read tsv
             tsv_file = open(data_dir_path)

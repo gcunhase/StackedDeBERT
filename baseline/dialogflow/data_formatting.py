@@ -19,7 +19,7 @@ for dataset in dataset_arr:
 
     for type in ['train', 'test']:
         # Data dir path
-        data_dir_path = "/mnt/gwena/Gwena/IncompleteIntentionClassifier/data/"
+        data_dir_path = "StackedDeBERT/data/"
         if complete:
             data_dir_path += "complete_data/"
         else:

@@ -7,10 +7,10 @@ import csv
 from utils import ensure_dir
 import json
 
-# os.environ.setdefault('GOOGLE_APPLICATION_CREDENTIALS', '/mnt/gwena/Gwena/IntentionClassifier/baseline_models/dialoglow/IntentRecognition-f82bbba966e2.json')
+# os.environ.setdefault('GOOGLE_APPLICATION_CREDENTIALS', 'IntentRecognition-f82bbba966e2.json')
 # https://dialogflow-python-client-v2.readthedocs.io/en/latest/
 
-GOOGLE_APPLICATION_CREDENTIALS = '/mnt/gwena/Gwena/IncompleteIntentionClassifier/baseline/dialogflow/newagent-4a8cc-64b72d6a5adb.json' # 'IntentRecognition-f82bbba966e2.json'
+GOOGLE_APPLICATION_CREDENTIALS = 'newagent-4a8cc-64b72d6a5adb.json'  # 'IntentRecognition-f82bbba966e2.json'
 
 
 def explicit_auth():
@@ -93,7 +93,7 @@ if __name__ == '__main__':
     if perc == 0.0:
         complete = True
 
-    data_dir_path = "/mnt/gwena/Gwena/IncompleteIntentionClassifier/data/"
+    data_dir_path = "StackedDeBERT/data/"
     if complete:
         data_dir_path += "complete_data/"
         scores_file_root = args.results_dir + 'complete/'

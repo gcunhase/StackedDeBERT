@@ -18,19 +18,16 @@ for dataset in dataset_arr:
     tags = INTENTION_TAGS[dataset]
 
     # Data dir path
-    data_dir_path = "/mnt/gwena/Gwena/"
+    data_dir_path = "StackedDeBERT/data/"
     if complete:
-        data_dir_path += "IntentionClassifier/data/processed/"
-        if 'snips' in dataset:
-            data_dir_path += "{}/train.tsv".format(dataset.lower())
-        else:
-            data_dir_path += "nlu_eval/{}/train.tsv".format(dataset.lower())
+        data_dir_path += "complete_data/"
     else:
-        data_dir_path += "IncompleteIntentionClassifier/data/incomplete_data_tfidf_lower_{}/".format(perc)
-        if 'snips' in dataset:
-            data_dir_path += "{}/train.tsv".format(dataset.lower())
-        else:
-            data_dir_path += "nlu_eval_{}/train.tsv".format(dataset.lower())
+        data_dir_path += "incomplete_data_tfidf_lower_{}/".format(perc)
+
+    if 'snips' in dataset:
+        data_dir_path += "{}/train.tsv".format(dataset.lower())
+    else:
+        data_dir_path += "nlu_eval_{}/train.tsv".format(dataset.lower())
 
     # Read tsv
     tsv_file = open(data_dir_path)

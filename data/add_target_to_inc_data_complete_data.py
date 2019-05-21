@@ -16,8 +16,6 @@ import nltk
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 
-__author__ = "Gwena Cunha"
-
 
 def write_tsv(intention_dir_path, filename, keys, dict):
     file_test = open(intention_dir_path + "/" + filename, 'w')

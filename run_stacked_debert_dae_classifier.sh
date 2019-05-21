@@ -10,7 +10,7 @@ for DATASET in chatbot askubuntu webapplications; do
         for EPOCH_AE in 100 1000 2000 5000; do
             echo "Training ${DATASET} dataset with ${PERC} missing for ${EPOCH} epochs and ${EPOCH_AE} ep autoencoder"
 
-            DATA_DIR="/mnt/gwena/Gwena/IncompleteIntentionClassifier/data/comp_with_incomplete_data_tfidf_lower_${PERC}/nlu_eval_${DATASET}corpus/"
+            DATA_DIR="StackedDeBERT/data/comp_with_incomplete_data_tfidf_lower_${PERC}/nlu_eval_${DATASET}corpus/"
             OUTPUT_DIR_1st_LAYER="${OUTPUT_DIR}/${DATASET}_ep${EPOCH}_bs4_${PERC}/"
             OUTPUT_DIR_2nd_LAYER="${OUTPUT_DIR}/${DATASET}_ep${EPOCH}_bs4_${PERC}_second_layer_epae${EPOCH_AE}/"
 
