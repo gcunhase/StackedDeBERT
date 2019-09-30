@@ -11,24 +11,13 @@ INTENTION_TAGS = {
               'RateBook': 4,
               'SearchCreativeWork': 5,
               'SearchScreeningEvent': 6},
-    'ChatbotCorpus': {'DepartureTime': 0,
-                      'FindConnection': 1},
-    'AskUbuntuCorpus': {'Make Update': 0,
-                        'Setup Printer': 1,
-                        'Shutdown Computer': 2,
-                        'Software Recommendation': 3,
-                        'None': 4},
-    'WebApplicationsCorpus': {'Change Password': 0,
-                              'Delete Account': 1,
-                              'Download Video': 2,
-                              'Export Data': 3,
-                              'Filter Spam': 4,
-                              'Find Alternative': 5,
-                              'Sync Accounts': 6,
-                              'None': 7}
 }
 
-MISS_TAG = '_'  # <miss> -> tokenizer recognizes as ['<', 'miss', '>]
+SENTIMENT_TAGS = {'Sentiment140': {'Negative': 0,
+                                   'Positive': 1},
+                 }
+
+MISS_TAG = ''
 
 
 def get_project_path():

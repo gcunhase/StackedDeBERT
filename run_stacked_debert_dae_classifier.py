@@ -13,7 +13,11 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""BERT finetuning runner."""
+"""
+BERT finetuning runner.
+Included: Early Stopping With Eval Loss (if eval loss has decreased, save model)
+"""
+
 
 from __future__ import absolute_import
 from __future__ import division
@@ -32,12 +36,14 @@ import torch
 from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
 from torch.utils.data.distributed import DistributedSampler
 from sklearn.metrics import confusion_matrix, precision_recall_fscore_support
-from plot_confusion_matrix import plot_confusion_matrix
+from models.plot_confusion_matrix import plot_confusion_matrix
 
-from models.stacked_debert.tokenization import BertTokenizer
-from models.stacked_debert.modeling import BertForSequenceClassification
-from models.stacked_debert import BertAdam
-from models.stacked_debert import PYTORCH_PRETRAINED_BERT_CACHE
+from models.stacked_debert_dae.tokenization import BertTokenizer
+from models.stacked_debert_dae.modeling import BertForSequenceClassification
+from models.stacked_debert_dae import BertAdam
+from models.stacked_debert_dae import PYTORCH_PRETRAINED_BERT_CACHE
+from models.stacked_debert_dae.autoencoder import AutoEncoder
+
 
 logging.basicConfig(format = '%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
                     datefmt = '%m/%d/%Y %H:%M:%S',
@@ -87,6 +93,10 @@ class DataProcessor(object):
         """Gets a collection of `InputExample`s for the dev set."""
         raise NotImplementedError()
 
+    def get_test_examples(self, data_dir):
+        """Gets a collection of `InputExample`s for the test set."""
+        raise NotImplementedError()
+
     def get_labels(self):
         """Gets the list of labels for this data set."""
         raise NotImplementedError()
@@ -117,15 +127,23 @@ class SentenceClassificationProcessor(DataProcessor):
     def get_dev_examples(self, data_dir):
         """See base class."""
         return self._create_examples(
-            self._read_tsv(os.path.join(data_dir, "test.tsv")), "dev")  # dev, dev_full
+            self._read_tsv(os.path.join(data_dir, "test.tsv")), "dev")
+
+    def get_test_examples(self, data_dir):
+        """See base class."""
+        return self._create_examples(
+            self._read_tsv(os.path.join(data_dir, "test.tsv")), "test")
 
     def get_labels(self):
         """See base class."""
         return self.labels_array
 
     def _create_examples(self, lines, set_type):
-        """Creates examples for the training and dev sets."""
-        examples = []
+        """
+        Creates examples for the training and dev sets.
+        Add target sentence for AutoEncoder.
+        """
+        examples, examples_target = [], []
         for (i, line) in enumerate(lines):
             if i == 0:
                 continue
@@ -134,7 +152,11 @@ class SentenceClassificationProcessor(DataProcessor):
             label = line[1]
             examples.append(
                 InputExample(guid=guid, text_a=text_a, text_b=None, label=label))
-        return examples
+            if len(line) == 4:
+                target_a = line[3]
+                examples_target.append(
+                    InputExample(guid=guid, text_a=target_a, text_b=None, label=label))
+        return examples, examples_target
 
 
 def convert_examples_to_features(examples, label_list, max_seq_length, tokenizer):
@@ -247,7 +269,122 @@ def warmup_linear(x, warmup=0.002):
     return 1.0 - x
 
 
-def first_bert_layer(train_examples, num_train_steps, args, tokenizer, label_list, num_labels, device, n_gpu):
+# ======== EARLY STOPPING ========
+def evaluate_original_bert_model(args, model, device, eval_dataloader, eval_examples_dataloader, tr_loss, nb_tr_steps, global_step, batches=None):
+    # Batches: None if eval and small number if eval is being used in train
+    eval_loss, eval_accuracy = 0, 0
+    nb_eval_steps, nb_eval_examples = 0, 0
+
+    predicted = []
+    target = []
+    predicted_mismatch, target_mismatch, text_mismatch = [], [], []
+    counter = 0
+    for (input_ids, input_mask, segment_ids, label_ids), ex in zip(eval_dataloader, eval_examples_dataloader):
+        input_ids = input_ids.to(device)
+        input_mask = input_mask.to(device)
+        segment_ids = segment_ids.to(device)
+        label_ids = label_ids.to(device)
+
+        with torch.no_grad():
+            _, tmp_eval_loss = model(input_ids, segment_ids, input_mask, label_ids)
+            _, logits = model(input_ids, segment_ids, input_mask)
+
+        logits = logits.detach().cpu().numpy()
+        label_ids = label_ids.to('cpu').numpy()
+        tmp_eval_accuracy = accuracy(logits, label_ids)
+
+        logits_max = np.argmax(logits, axis=1)
+        for pred, lab, e in zip(logits_max, label_ids, ex):
+            predicted.append(pred)
+            target.append(lab)
+            if pred != lab:
+                predicted_mismatch.append(pred)
+                target_mismatch.append(lab)
+                text_mismatch.append(e)
+
+        eval_loss += tmp_eval_loss.mean().item()
+        eval_accuracy += tmp_eval_accuracy
+
+        nb_eval_examples += input_ids.size(0)
+        nb_eval_steps += 1
+        if batches is not None and counter >= batches:
+            break
+        counter += 1
+
+    eval_loss = eval_loss / nb_eval_steps
+    eval_accuracy = eval_accuracy / nb_eval_examples
+    loss = tr_loss / nb_tr_steps if args.do_train else None
+    result = {'eval_loss': eval_loss,
+              'eval_accuracy': eval_accuracy,
+              'global_step': global_step,
+              'loss': loss}
+    return eval_loss, result, target, predicted, text_mismatch, target_mismatch, predicted_mismatch
+
+
+def evaluate_model(args, model, device, eval_dataloader, eval_examples_dataloader, tr_loss, nb_tr_steps, global_step,
+                   autoencoder, model_second_stack, batches=None):
+    # Batches: None if eval and small number if eval is being used in train
+    eval_loss, eval_accuracy = 0, 0
+    nb_eval_steps, nb_eval_examples = 0, 0
+
+    predicted = []
+    target = []
+    predicted_mismatch, target_mismatch, text_mismatch = [], [], []
+    counter = 0
+    for (input_ids, input_mask, segment_ids, label_ids), ex in zip(eval_dataloader, eval_examples_dataloader):
+        # tqdm(zip(eval_dataloader, eval_examples_dataloader), desc="Evaluating"):
+        input_ids = input_ids.to(device)
+        input_mask = input_mask.to(device)
+        segment_ids = segment_ids.to(device)
+        label_ids = label_ids.to(device)
+
+        with torch.no_grad():
+            encoded_layers, tmp_eval_loss = model(input_ids, segment_ids, input_mask, label_ids)
+            # _, out_decoder = autoencoder(encoded_layers)
+            # encoded_layers = out_decoder
+            encoded_layers = encoded_layers.view(-1, 768)
+            _, out_decoder = autoencoder(encoded_layers)
+            encoded_layers = out_decoder.view(args.eval_batch_size, -1, 768)
+            _, tmp_eval_loss = model_second_stack(input_ids, segment_ids, input_mask, label_ids,
+                                                  words_embeddings=encoded_layers)
+            _, logits = model_second_stack(input_ids, segment_ids, input_mask, words_embeddings=encoded_layers)
+
+        logits = logits.detach().cpu().numpy()
+        label_ids = label_ids.to('cpu').numpy()
+        tmp_eval_accuracy = accuracy(logits, label_ids)
+
+        logits_max = np.argmax(logits, axis=1)
+        for pred, lab, e in zip(logits_max, label_ids, ex):
+            predicted.append(pred)
+            target.append(lab)
+            if pred != lab:
+                predicted_mismatch.append(pred)
+                target_mismatch.append(lab)
+                text_mismatch.append(e)
+
+        eval_loss += tmp_eval_loss.mean().item()
+        eval_accuracy += tmp_eval_accuracy
+
+        nb_eval_examples += input_ids.size(0)
+        nb_eval_steps += 1
+
+        if batches is not None and counter >= batches:
+            break
+        counter += 1
+
+    eval_loss = eval_loss / nb_eval_steps
+    eval_accuracy = eval_accuracy / nb_eval_examples
+    loss = tr_loss / nb_tr_steps if args.do_train or args.do_train_second_layer else None
+    result = {'eval_loss': eval_loss,
+              'eval_accuracy': eval_accuracy,
+              'global_step': global_step,
+              'loss': loss}
+    return eval_loss, result, target, predicted, text_mismatch, target_mismatch, predicted_mismatch
+# ================================
+
+
+def first_bert_layer(train_examples, num_train_steps, args, tokenizer, label_list, num_labels, device, n_gpu,
+                     eval_dataloader, eval_examples_dataloader):
 
     # Prepare model
     model = BertForSequenceClassification.from_pretrained(args.bert_model,
@@ -304,6 +441,8 @@ def first_bert_layer(train_examples, num_train_steps, args, tokenizer, label_lis
     global_step = 0
     nb_tr_steps = 0
     tr_loss = 0
+    # EARLY STOPPING
+    last_eval_loss = float("inf")
     if args.do_train:
         train_features = convert_examples_to_features(
             train_examples, label_list, args.max_seq_length, tokenizer)
@@ -352,10 +491,115 @@ def first_bert_layer(train_examples, num_train_steps, args, tokenizer, label_lis
                     optimizer.zero_grad()
                     global_step += 1
 
+                    # ======== EARLY STOPPING ========
+                    eval_loss, _, _, _, _, _, _ = evaluate_original_bert_model(args, model, device, eval_dataloader,
+                                                                               eval_examples_dataloader, tr_loss,
+                                                                               nb_tr_steps, global_step, batches=4)
+                    if args.save_best_model:
+                        # Save a trained model - EARLY STOPPING
+                        if eval_loss <= last_eval_loss:
+                            model_to_save = model.module if hasattr(model,
+                                                                    'module') else model  # Only save the model it-self
+                            output_model_file = os.path.join(args.output_dir_first_layer, "pytorch_model.bin")
+                            torch.save(model_to_save.state_dict(), output_model_file)
+                            last_eval_loss = eval_loss
+                    # ================================
+
+    # Save a trained model
+    if not args.save_best_model:
+        model_to_save = model.module if hasattr(model, 'module') else model  # Only save the model it-self
+        output_model_file = os.path.join(args.output_dir_first_layer, "pytorch_model.bin")
+        torch.save(model_to_save.state_dict(), output_model_file)
+
     return model, global_step, nb_tr_steps, tr_loss
 
 
-def second_bert_layer(train_examples, num_train_steps, model_first_layer, args, tokenizer, label_list, num_labels, device, n_gpu):
+def autoencoder_layer(train_examples, train_examples_target, model_first_layer, args, tokenizer, label_list, device, n_gpu):
+
+    # Prepare model
+    autoencoder = AutoEncoder()
+
+    if args.fp16:
+        autoencoder.half()
+    autoencoder.to(device)
+    if args.local_rank != -1:
+        try:
+            from apex.parallel import DistributedDataParallel as DDP
+        except ImportError:
+            raise ImportError(
+                "Please install apex from https://www.github.com/nvidia/apex to use distributed and fp16 training.")
+
+        autoencoder = DDP(autoencoder)
+    elif n_gpu > 1:
+        autoencoder = torch.nn.DataParallel(autoencoder)
+
+    # Prepare optimizer
+    optimizer = torch.optim.Adam(autoencoder.parameters(), lr=0.001, weight_decay=1e-5)
+    criterion = torch.nn.MSELoss()
+
+    if args.do_train_second_layer:
+        train_features = convert_examples_to_features(
+            train_examples, label_list, args.max_seq_length, tokenizer)
+        logger.info("***** Running training *****")
+        logger.info("  Num examples = %d", len(train_examples))
+        logger.info("  Batch size = %d", args.train_batch_size)
+        all_input_ids = torch.tensor([f.input_ids for f in train_features], dtype=torch.long)
+        all_input_mask = torch.tensor([f.input_mask for f in train_features], dtype=torch.long)
+        all_segment_ids = torch.tensor([f.segment_ids for f in train_features], dtype=torch.long)
+        all_label_ids = torch.tensor([f.label_id for f in train_features], dtype=torch.long)
+
+        train_features = convert_examples_to_features(
+            train_examples_target, label_list, args.max_seq_length, tokenizer)
+        logger.info("***** Running training *****")
+        logger.info("  Num examples = %d", len(train_examples_target))
+        logger.info("  Batch size = %d", args.train_batch_size)
+        all_input_ids_target = torch.tensor([f.input_ids for f in train_features], dtype=torch.long)
+        all_input_mask_target = torch.tensor([f.input_mask for f in train_features], dtype=torch.long)
+        all_segment_ids_target = torch.tensor([f.segment_ids for f in train_features], dtype=torch.long)
+        all_label_ids_target = torch.tensor([f.label_id for f in train_features], dtype=torch.long)
+
+        train_data = TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_label_ids,
+                                   all_input_ids_target, all_input_mask_target, all_segment_ids_target, all_label_ids_target)
+        if args.local_rank == -1:
+            train_sampler = RandomSampler(train_data)
+        else:
+            train_sampler = DistributedSampler(train_data)
+        train_dataloader = DataLoader(train_data, sampler=train_sampler, batch_size=args.train_batch_size)
+
+        autoencoder.train()
+        for _ in trange(int(args.num_train_epochs_autoencoder), desc="Epoch"):
+            tr_loss = 0
+            nb_tr_examples, nb_tr_steps = 0, 0
+            for step, batch in enumerate(tqdm(train_dataloader, desc="Iteration")):
+                batch = tuple(t.to(device) for t in batch)
+                input_ids, input_mask, segment_ids, label_ids, input_ids_target, input_mask_target, segment_ids_target, label_ids_target = batch
+                # BERT model on INcomplete data
+                encoded_layers, _ = model_first_layer(input_ids, segment_ids, input_mask, label_ids)
+                encoded_layers = encoded_layers.view(-1, 768)
+                # BERT model on complete data
+                encoded_layers_complete, _ = model_first_layer(input_ids_target, segment_ids_target, input_mask_target, label_ids_target)
+                # Denoising Autoencoder trained on noisy input and clean output_cnn_hter_cr
+                encoded_layers_complete = encoded_layers_complete.view(-1, 768)
+                _, out_dec = autoencoder(encoded_layers)
+                loss = criterion(out_dec, encoded_layers_complete)
+                if n_gpu > 1:
+                    loss = loss.mean()  # mean() to average on multi-gpu.
+                if args.gradient_accumulation_steps > 1:
+                    loss = loss / args.gradient_accumulation_steps
+
+                optimizer.zero_grad()
+                loss.backward()
+                optimizer.step()
+
+                tr_loss += loss.item()
+                nb_tr_examples += input_ids.size(0)
+                nb_tr_steps += 1
+
+    return autoencoder
+
+
+def second_bert_layer(train_examples, num_train_steps, model_first_layer, autoencoder, args, tokenizer, label_list,
+                      num_labels, device, n_gpu, eval_dataloader, eval_examples_dataloader):
 
     # Prepare model
     model = BertForSequenceClassification.from_pretrained(args.bert_model,
@@ -412,6 +656,8 @@ def second_bert_layer(train_examples, num_train_steps, model_first_layer, args, 
     global_step = 0
     nb_tr_steps = 0
     tr_loss = 0
+    # EARLY STOPPING
+    last_eval_loss = float("inf")
     if args.do_train_second_layer:
         train_features = convert_examples_to_features(
             train_examples, label_list, args.max_seq_length, tokenizer)
@@ -438,10 +684,10 @@ def second_bert_layer(train_examples, num_train_steps, model_first_layer, args, 
                 batch = tuple(t.to(device) for t in batch)
                 input_ids, input_mask, segment_ids, label_ids = batch
                 encoded_layers, loss = model_first_layer(input_ids, segment_ids, input_mask, label_ids)
-                # Add noise here -> encoded_layers += noise
-                noise = torch.rand(encoded_layers.size()).uniform_(0, args.max_noise)  # 0.3*
-                # noise = args.max_noise * torch.rand(encoded_layers.size())  # 0.3*
-                encoded_layers += noise.to(device)
+                # AutoEncoder
+                encoded_layers = encoded_layers.view(-1, 768)
+                _, out_decoder = autoencoder(encoded_layers)
+                encoded_layers = out_decoder.view(args.train_batch_size, -1, 768)
                 _, loss = model(input_ids, segment_ids, input_mask, label_ids, words_embeddings=encoded_layers)
                 if n_gpu > 1:
                     loss = loss.mean()  # mean() to average on multi-gpu.
@@ -464,6 +710,25 @@ def second_bert_layer(train_examples, num_train_steps, model_first_layer, args, 
                     optimizer.step()
                     optimizer.zero_grad()
                     global_step += 1
+
+                    # ======== EARLY STOPPING ========
+                    eval_loss, _, _, _, _, _, _ = evaluate_model(args, model_first_layer, device, eval_dataloader,
+                                                                 eval_examples_dataloader, tr_loss, nb_tr_steps,
+                                                                 global_step, autoencoder, model, batches=4)
+                    if args.save_best_model:
+                        # Save a trained model - EARLY STOPPING
+                        if eval_loss <= last_eval_loss:
+                            model_to_save = model.module if hasattr(model,
+                                                                    'module') else model  # Only save the model it-self
+                            output_model_file = os.path.join(args.output_dir, "pytorch_model.bin")
+                            torch.save(model_to_save.state_dict(), output_model_file)
+                            last_eval_loss = eval_loss
+                    # ================================
+
+    # Save a trained model
+    model_to_save = model.module if hasattr(model, 'module') else model  # Only save the model it-self
+    output_model_file = os.path.join(args.output_dir, "pytorch_model.bin")
+    torch.save(model_to_save.state_dict(), output_model_file)
 
     return model, global_step, nb_tr_steps, tr_loss
 
@@ -512,6 +777,9 @@ def main():
     parser.add_argument("--do_train_second_layer",
                         action='store_true',
                         help="Whether to run training.")
+    parser.add_argument("--do_train_autoencoder",
+                        action='store_true',
+                        help="Whether to run training.")
     parser.add_argument("--do_eval",
                         action='store_true',
                         help="Whether to run eval on the dev set.")
@@ -534,6 +802,10 @@ def main():
                         default=3.0,
                         type=float,
                         help="Total number of training epochs to perform.")
+    parser.add_argument("--num_train_epochs_autoencoder",
+                        default=100.0,
+                        type=float,
+                        help="Total number of training epochs to perform.")
     parser.add_argument("--warmup_proportion",
                         default=0.1,
                         type=float,
@@ -542,6 +814,11 @@ def main():
     parser.add_argument("--no_cuda",
                         action='store_true',
                         help="Whether not to use CUDA when available")
+    # ======== EARLY STOPPING ========
+    parser.add_argument("--save_best_model",
+                        action='store_true',
+                        help="Whether to do early stopping or not")
+    # ================================
     parser.add_argument("--local_rank",
                         type=int,
                         default=-1,
@@ -566,35 +843,23 @@ def main():
     args = parser.parse_args()
 
     processors = {
-        "sst": SentenceClassificationProcessor,
         "snips_intent": SentenceClassificationProcessor,
-        "chatbot_intent": SentenceClassificationProcessor,
-        "askubuntu_intent": SentenceClassificationProcessor,
-        "webapplications_intent": SentenceClassificationProcessor,
+        "sentiment140_sentiment": SentenceClassificationProcessor,
     }
 
     num_labels_task = {
-        "sst": 2,
         "snips_intent": 7,
-        "chatbot_intent": 2,
-        "askubuntu_intent": 5,
-        "webapplications_intent": 8,
+        "sentiment140_sentiment": 2,
     }
 
     labels_array = {
-        "sst": ["0", "1"],
         "snips_intent": ["0", "1", "2", "3", "4", "5", "6"],
-        "chatbot_intent": ["0", "1"],
-        "askubuntu_intent": ["0", "1", "2", "3", "4"],
-        "webapplications_intent": ["0", "1", "2", "3", "4", "5", "6", "7"],
+        "sentiment140_sentiment": ["0", "1"],
     }
 
     labels_array_int = {
-        "sst": [0, 1],
         "snips_intent": [0, 1, 2, 3, 4, 5, 6],
-        "chatbot_intent": [0, 1],
-        "askubuntu_intent": [0, 1, 2, 3, 4],
-        "webapplications_intent": [0, 1, 2, 3, 4, 5, 6, 7],
+        "sentiment140_sentiment": [0, 1],
     }
 
     if args.local_rank == -1 or args.no_cuda:
@@ -644,112 +909,124 @@ def main():
     tokenizer = BertTokenizer.from_pretrained(args.bert_model, do_lower_case=args.do_lower_case)
 
     train_examples = None
+    train_examples_target = None
     num_train_steps = None
-    if args.do_train or args.do_train_second_layer:
-        train_examples = processor.get_train_examples(args.data_dir)
+    if args.do_train or args.do_train_second_layer or args.do_train_autoencoder:
+        train_examples, train_examples_target = processor.get_train_examples(args.data_dir)
         num_train_steps = int(
             len(train_examples) / args.train_batch_size / args.gradient_accumulation_steps * args.num_train_epochs)
 
+    # ======== EARLY STOPPING ========
+    # Load evaluation dataset for use in early stopping
+    # Eval dataloader
+    eval_examples, _ = processor.get_dev_examples(args.data_dir)
+    eval_features = convert_examples_to_features(
+        eval_examples, label_list, args.max_seq_length, tokenizer)
+    logger.info("***** Running evaluation *****")
+    logger.info("  Num examples = %d", len(eval_examples))
+    logger.info("  Batch size = %d", args.eval_batch_size)
+    all_input_ids = torch.tensor([f.input_ids for f in eval_features], dtype=torch.long)
+    all_input_mask = torch.tensor([f.input_mask for f in eval_features], dtype=torch.long)
+    all_segment_ids = torch.tensor([f.segment_ids for f in eval_features], dtype=torch.long)
+    all_label_ids = torch.tensor([f.label_id for f in eval_features], dtype=torch.long)
+    eval_data = TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_label_ids)
+    # Run prediction for full data
+    eval_sampler = SequentialSampler(eval_data)
+    eval_dataloader = DataLoader(eval_data, sampler=eval_sampler, batch_size=args.eval_batch_size)
+
+    # Get texts
+    text = []
+    for e in eval_examples:
+        text.append(e.text_a)
+    eval_examples_dataloader = DataLoader(text, shuffle=False, batch_size=args.eval_batch_size)
+    # ================================
+
+    # Train 1st BERT
+    global_step, nb_tr_steps, tr_loss = 0, 0, 0
     if args.do_train:
         model, global_step, nb_tr_steps, tr_loss = first_bert_layer(train_examples, num_train_steps, args, tokenizer,
-                                                                    label_list, num_labels, device, n_gpu)
+                                                                    label_list, num_labels, device, n_gpu,
+                                                                    eval_dataloader, eval_examples_dataloader)
+
+    # Load a trained model that you have fine-tuned
+    output_model_file = os.path.join(args.output_dir_first_layer, "pytorch_model.bin")
+    model_state_dict = torch.load(output_model_file)
+    model_first_layer = BertForSequenceClassification.from_pretrained(args.bert_model, state_dict=model_state_dict,
+                                                                      num_labels=num_labels)
+    model_first_layer.to(device)
+
+    # Train autoencoder
+    # TODO: Early Stopping for AutoEncoder
+    if args.do_train_autoencoder:
+        autoencoder = autoencoder_layer(train_examples, train_examples_target, model_first_layer, args, tokenizer, label_list, device, n_gpu)
+
         # Save a trained model
-        model_to_save = model.module if hasattr(model, 'module') else model  # Only save the model it-self
-        output_model_file = os.path.join(args.output_dir_first_layer, "pytorch_model.bin")
+        model_to_save = autoencoder.module if hasattr(autoencoder, 'module') else autoencoder  # Only save the model it-self
+        output_model_file = os.path.join(args.output_dir, "autoencoder_pytorch_model.bin")
         torch.save(model_to_save.state_dict(), output_model_file)
 
+    # Train 2nd BERT layer
     if args.do_train_second_layer:
-        # Load a trained model that you have fine-tuned
-        output_model_file = os.path.join(args.output_dir_first_layer, "pytorch_model.bin")
-        model_state_dict = torch.load(output_model_file)
-        model = BertForSequenceClassification.from_pretrained(args.bert_model, state_dict=model_state_dict,
-                                                              num_labels=num_labels)
-        model.to(device)
+        # Load trained autoencoder
+        output_model_file_ae = os.path.join(args.output_dir, "autoencoder_pytorch_model.bin")
+        model_state_dict_ae = torch.load(output_model_file_ae)
+        autoencoder = AutoEncoder()
+        autoencoder.load_state_dict(model_state_dict_ae)
+        autoencoder.to(device)
 
         model_second_stack, global_step, nb_tr_steps, tr_loss = second_bert_layer(train_examples, num_train_steps,
-                                                                                  model, args, tokenizer, label_list,
-                                                                                  num_labels, device, n_gpu)
-        # Save a trained model
-        model_to_save = model_second_stack.module if hasattr(model_second_stack, 'module') else model_second_stack  # Only save the model it-self
-        output_model_file = os.path.join(args.output_dir, "pytorch_model.bin")
-        torch.save(model_to_save.state_dict(), output_model_file)
+                                                                                  model_first_layer, autoencoder, args,
+                                                                                  tokenizer, label_list, num_labels,
+                                                                                  device, n_gpu, eval_dataloader,
+                                                                                  eval_examples_dataloader)
 
+    # ======== LOAD TEST DATA ========
+    # Test dataloader
+    test_examples, _ = processor.get_test_examples(args.data_dir)
+    test_features = convert_examples_to_features(test_examples, label_list, args.max_seq_length, tokenizer)
+    logger.info("***** Loading test data *****")
+    logger.info("  Num examples = %d", len(test_examples))
+    logger.info("  Batch size = %d", args.eval_batch_size)
+    all_input_ids = torch.tensor([f.input_ids for f in test_features], dtype=torch.long)
+    all_input_mask = torch.tensor([f.input_mask for f in test_features], dtype=torch.long)
+    all_segment_ids = torch.tensor([f.segment_ids for f in test_features], dtype=torch.long)
+    all_label_ids = torch.tensor([f.label_id for f in test_features], dtype=torch.long)
+    test_data = TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_label_ids)
+    # Run prediction for full data
+    test_sampler = SequentialSampler(test_data)
+    test_dataloader = DataLoader(test_data, sampler=test_sampler, batch_size=args.eval_batch_size)
+
+    # Get texts
+    text = []
+    for e in test_examples:
+        text.append(e.text_a)
+    test_examples_dataloader = DataLoader(text, shuffle=False, batch_size=args.eval_batch_size)
+
+    # ======== TEST with TEST DATA ========
     # Load a trained model that you have fine-tuned
     model_state_dict = torch.load(os.path.join(args.output_dir_first_layer, "pytorch_model.bin"))
     model = BertForSequenceClassification.from_pretrained(args.bert_model, state_dict=model_state_dict, num_labels=num_labels)
     model.to(device)
 
+    # Load trained autoencoder
+    output_model_file_ae = os.path.join(args.output_dir, "autoencoder_pytorch_model.bin")
+    model_state_dict_ae = torch.load(output_model_file_ae)
+    autoencoder = AutoEncoder()
+    autoencoder.load_state_dict(model_state_dict_ae)
+    autoencoder.to(device)
+
+    # Load second layer
     model_state_dict_second_stack = torch.load(os.path.join(args.output_dir, "pytorch_model.bin"))
-    model_second_stack = BertForSequenceClassification.from_pretrained(args.bert_model, state_dict=model_state_dict_second_stack,
+    model_second_stack = BertForSequenceClassification.from_pretrained(args.bert_model,
+                                                                       state_dict=model_state_dict_second_stack,
                                                                        num_labels=num_labels)
     model_second_stack.to(device)
 
     if args.do_eval and (args.local_rank == -1 or torch.distributed.get_rank() == 0):
-        eval_examples = processor.get_dev_examples(args.data_dir)
-        eval_features = convert_examples_to_features(
-            eval_examples, label_list, args.max_seq_length, tokenizer)
-        logger.info("***** Running evaluation *****")
-        logger.info("  Num examples = %d", len(eval_examples))
-        logger.info("  Batch size = %d", args.eval_batch_size)
-        all_input_ids = torch.tensor([f.input_ids for f in eval_features], dtype=torch.long)
-        all_input_mask = torch.tensor([f.input_mask for f in eval_features], dtype=torch.long)
-        all_segment_ids = torch.tensor([f.segment_ids for f in eval_features], dtype=torch.long)
-        all_label_ids = torch.tensor([f.label_id for f in eval_features], dtype=torch.long)
-        eval_data = TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_label_ids)
-        # Run prediction for full data
-        eval_sampler = SequentialSampler(eval_data)
-        eval_dataloader = DataLoader(eval_data, sampler=eval_sampler, batch_size=args.eval_batch_size)
-
-        # Get texts
-        text = []
-        for e in eval_examples:
-            text.append(e.text_a)
-        eval_examples_dataloader = DataLoader(text, shuffle=False, batch_size=args.eval_batch_size)
-
         model.eval()
-        eval_loss, eval_accuracy = 0, 0
-        nb_eval_steps, nb_eval_examples = 0, 0
-
-        predicted = []
-        target = []
-        predicted_mismatch, target_mismatch, text_mismatch = [], [], []
-        for (input_ids, input_mask, segment_ids, label_ids), ex in tqdm(zip(eval_dataloader, eval_examples_dataloader), desc="Evaluating"):
-            input_ids = input_ids.to(device)
-            input_mask = input_mask.to(device)
-            segment_ids = segment_ids.to(device)
-            label_ids = label_ids.to(device)
-
-            with torch.no_grad():
-                encoded_layers, tmp_eval_loss = model(input_ids, segment_ids, input_mask, label_ids)
-                _, tmp_eval_loss = model_second_stack(input_ids, segment_ids, input_mask, label_ids, words_embeddings=encoded_layers)
-                _, logits = model_second_stack(input_ids, segment_ids, input_mask, words_embeddings=encoded_layers)
-
-            logits = logits.detach().cpu().numpy()
-            label_ids = label_ids.to('cpu').numpy()
-            tmp_eval_accuracy = accuracy(logits, label_ids)
-
-            logits_max = np.argmax(logits, axis=1)
-            for pred, lab, e in zip(logits_max, label_ids, ex):
-                predicted.append(pred)
-                target.append(lab)
-                if pred != lab:
-                    predicted_mismatch.append(pred)
-                    target_mismatch.append(lab)
-                    text_mismatch.append(e)
-
-            eval_loss += tmp_eval_loss.mean().item()
-            eval_accuracy += tmp_eval_accuracy
-
-            nb_eval_examples += input_ids.size(0)
-            nb_eval_steps += 1
-
-        eval_loss = eval_loss / nb_eval_steps
-        eval_accuracy = eval_accuracy / nb_eval_examples
-        loss = tr_loss/nb_tr_steps if args.do_train else None
-        result = {'eval_loss': eval_loss,
-                  'eval_accuracy': eval_accuracy,
-                  'global_step': global_step,
-                  'loss': loss}
+        eval_loss, result, target, predicted, text_mismatch, target_mismatch, predicted_mismatch = \
+            evaluate_model(args, model, device, test_dataloader, test_examples_dataloader, tr_loss, nb_tr_steps,
+                           global_step, autoencoder, model_second_stack, batches=None)
 
         # Save model information
         labels = labels_array_int[task_name]

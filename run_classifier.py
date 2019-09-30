@@ -36,7 +36,7 @@ import torch
 from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
 from torch.utils.data.distributed import DistributedSampler
 from sklearn.metrics import confusion_matrix, precision_recall_fscore_support
-from plot_confusion_matrix import plot_confusion_matrix
+from models.plot_confusion_matrix import plot_confusion_matrix
 
 from models.pytorch_pretrained_bert.tokenization import BertTokenizer
 from models.pytorch_pretrained_bert import BertForSequenceClassification
@@ -397,35 +397,23 @@ def main():
     args = parser.parse_args()
 
     processors = {
-        "sst": SentenceClassificationProcessor,
         "snips_intent": SentenceClassificationProcessor,
-        "chatbot_intent": SentenceClassificationProcessor,
-        "askubuntu_intent": SentenceClassificationProcessor,
-        "webapplications_intent": SentenceClassificationProcessor,
+        "sentiment140_sentiment": SentenceClassificationProcessor,
     }
 
     num_labels_task = {
-        "sst": 2,
         "snips_intent": 7,
-        "chatbot_intent": 2,
-        "askubuntu_intent": 5,
-        "webapplications_intent": 8,
+        "sentiment140_sentiment": 2,
     }
 
     labels_array = {
-        "sst": ["0", "1"],
         "snips_intent": ["0", "1", "2", "3", "4", "5", "6"],
-        "chatbot_intent": ["0", "1"],
-        "askubuntu_intent": ["0", "1", "2", "3", "4"],
-        "webapplications_intent": ["0", "1", "2", "3", "4", "5", "6", "7"],
+        "sentiment140_sentiment": ["0", "1"],
     }
 
     labels_array_int = {
-        "sst": [0, 1],
         "snips_intent": [0, 1, 2, 3, 4, 5, 6],
-        "chatbot_intent": [0, 1],
-        "askubuntu_intent": [0, 1, 2, 3, 4],
-        "webapplications_intent": [0, 1, 2, 3, 4, 5, 6, 7],
+        "sentiment140_sentiment": [0, 1],
     }
 
     if args.local_rank == -1 or args.no_cuda:
