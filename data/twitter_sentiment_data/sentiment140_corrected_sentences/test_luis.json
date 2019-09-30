@@ -1,0 +1,252 @@
+[
+  {
+    "text": "'My nap was interrupted so many times today. Going out for Japanese with my parents again.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'Oh babe, you look so sad underneath that shop entrance of Yesterday's Music. I like the look of the new Transformer movie.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'He now has somebody to read his tweets, but he can't get them to make an account.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'Oh my God, I cannot handle my cat being in heat all the time.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'i hope I can make it to the Auburn show, but it's not looking good for me.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'That is People magazine. I couldn't fit it all in, I don't think those pictures ever made it in the magazine though.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'Now you're leaving me!'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'Yes, I'm still trying to find a picture that will upload correctly.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'My Home town. My mom called, all depressed. Please explain why a parent would let their 8 year old child walk alone?'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'Is this it for you? It's officially over for me this time around!'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'I think too much on the past, I can't change it. I deserve so much more than what I got, but why am I still thinking about him? God.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'I am poor too.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'Dierks Bentley is coming to Columbus, OH! I want to go so bad.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'Great, my face is very itchy.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'Poor socks, love the golden retriever! I want one, sigh.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'I agree, the Jonas Brothers update theirs very often.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'With whom? I am not either but that's because I need to study.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'But I can't figure out how to get there, get back, pay for a hotel, etc.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'Yeah, night workouts are the worst but unfortunately my work schedule only allows me to go at night. It's tough!'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'No, he's still missing.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'Rachel! Hanging out is necessary. I was going to be home this weekend, but dumb folk is making me work, so I'm free Friday and Saturday until 4 pm.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'I think you should get a few more hours of sleep, honey. How productive can you be right now if you're dog tired? I worry.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'I miss them so much. Can we go to Chinatown for visits please?'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'I have been out of range all day. I'm back now and hopefully for good.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'Oh my God, I have an economics test and i don't know all the things I have to know. Oh my God, I'm going to fail.'",
+    "intent": "Negative",
+    "entities": []
+  },
+  {
+    "text": "'I'm glad everything is going good for you guys.'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'Check this hand because I'm marvelous. Boy, I don't know how I'm going to make it through this week.'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'Good night, sweet dreams.'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'Woohoo! Yeah, that day I was rocking it hardcore.'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'I am hell of excited because the Italian is here.'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'I can tell you have spoken. Facebook and Twitter are on fire right now! Hope you are feeling better love. Have a great night.'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'I hate morning workouts because I love to sleep late. Have fun in Mexico! Love the show, is the trip going to air on Keeping Up?'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'If I am following you, it is mandatory that you follow me.'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'Well I don't know, I didn't give him an answer yet. Do you know who I am talking about?'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'So chill! So what part do you live in? I went to Laguna Creek in South Sacramento then got my own place in Citrus Heights.'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'Just got home, saw 'The Haunting Off Connecticut'. It was scary! Going to Florida on Thursday!'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'I broke your record and I got to witness it. Yay!'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'Your avatar is the prettiest.'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'Totally know what you mean! This late night stuff has been to my detriment for years lol! Society is discriminatory towards night people.'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'Love it? It is 1:00 am and I am still in my skinny jeans.'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'Class surprised me with a birthday cake in Literature class. Best birthday surprise in a long while.'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'Lol freak session with your wife right?'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'I saw you were on and I just wanted to say hi. You are an amazing person and an inspiration. Thank you so much! I hope I can meet you one day.'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'You are not insane. Your husband though, not so sure.'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'However, I'm not turning status updates on for you because I have insomnia and you will just wake me up. Only D is allowed to do that.'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'Woohoo, the beach was awesome, I love it. The water was so cold! I went to Seattle to Aqua Beach or something like that.'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'Okay, deal.'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'I totally agree! Why are we limited on what we need to speak out about? I need more than 140! It is so random.'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'I'm going to Dennis' party and I'm going to dress up as a giant duck!'",
+    "intent": "Positive",
+    "entities": []
+  },
+  {
+    "text": "'Please email your details to claim your tickets.'",
+    "intent": "Positive",
+    "entities": []
+  }
+]

@@ -1,0 +1,1028 @@
+{
+  "tokenizerVersion": "1.0.0",
+  "patterns": [],
+  "culture": "en-us",
+  "entities": [],
+  "name": "IntentClassification-Sentiment140-inc-corr",
+  "regex_features": [],
+  "intents": [
+    {
+      "name": "Negative"
+    },
+    {
+      "name": "Positive"
+    }
+  ],
+  "model_features": [],
+  "patternAnyEntities": [],
+  "utterances": [
+    {
+      "text": "is upset that he cant update his Facebook by texting it... might cry as a result  School today also. Blah!",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "I dived many times for the ball. Managed to save 50%  The rest go out of bounds",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "my whole body feels itchy and like its on fire ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "no, its not behaving at all. im mad. why am i here? because I can't see you all over there. ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "hey  long time no see! Yes.. Rains a bit ,only a bit  LOL , I'm fine thanks , how's you ?",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "nope they didnt have it ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "It it counts, idk why I did either. you never talk to me anymore ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "Hollis' death scene will hurt me severely to watch on film  wry is directors cut not out now?",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "ahh ive always wanted to see rent  love the soundtrack!!",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "I baked u a cake but I ated it ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "im sad now  Miss.Lilly",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "ooooh.... LOL  that leslie.... and ok I won't do it again so leslie won't  get mad again ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "some1 hacked my account on aim  now i hav to make a new one",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "I want to go to promote GEAR AND GROOVE but unfornately no ride there  I may b going to the one in Anaheim in May though",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "thought sleeping in was an option tomorrow but realizing that it now is not. evaluations in the morning and work in the afternoon! ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "awe i love you too!!!! 1 am here  i miss you",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "ill tell ya the story later  not a good day and ill be workin for like three more hours...",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "really don't feel like getting up today... but got to study to for tomorrows practical exam... ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "Awww I soo wish I was there to see you finally comfortable! Im sad that I missed it ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "Put vacation photos online a few yrs ago. PC crashed, and now I forget the name of the site. ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "Not sure what they are! As much as I want to, I dont think can trade away company assets sorry andy! ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "Where did u move to?  I thought u were already in sd. ?? Hmmm. Random u found me. Glad to hear yer doing well.",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "I miss my ps3, it's out of commission  Wutcha playing? Have you copped 'Blood On The Sand'?",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "just leaving the parking lot of work! ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "too bad I won't be around I lost my job and can't even pay my phone bill lmao aw shucks ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "Mo jobs, no money.  how in the hell is min wage here 4 f'n clams an hour?",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "Oh! Haha... dude I dont really look at em unless someone says HEY I ADDED YOU. Sorry  I'm so terrible at that. I need a pop up!",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "wonders why someone that u like so much can make you so unhappy in a split seccond . depressed . ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "just got ur newsletter, those fares really are unbelievable, shame I already booked and paid for mine ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "hey missed ya at the meeting  sup mama",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "wednesday my b-day! don't know what 2 do!! ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "hmm  , do u really enjoy being with him ? if the problems are too constants u should think things more , find someone ulike",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "so rylee,grace...wana go steve's party or not?? SADLY SINCE ITS EASTER I WNT B ABLE 2 DO MUCH  BUT OHH WELL.....",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "A bad nite for the favorite teams: Astros and Spartans lose.  The nite out with T.W. was good.",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "cool, i will. their are all kinds of complaints about this laptop online bout overheating, but no recalls ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "hope your ok.",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "yeah aw but i know i wudnt stand a chance ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "ugh. cant sleep. its 1:30am. ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "aaw i miss ya all too.. im leaving to BH tomorrow 'morning'; i think.. aww i wanna go to the beach w u girls!! ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "Im missing you babe..  but as long as ur alive I'm happy.. Yawwwnn.. im tired my love imma try to sleep hopefully u had a headstart",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "No phantasy star yesterday  going to work...",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "I had on my page for sooooo long!!! Until it got deleted  Sad day in history",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "Grrr.. my ipods acting weird to! Jai ho and thinking of you arent playing the full songs.. ughh. ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "danny im upset that i wasnt here to watch the live chat  i was in a car. for 3 hours on a trip im soooo upset!!",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "is watching the hill . . .and its making me sad ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "I miss my buddy ill be in NY on the 25th",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "wanttss to go out ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "Is not going to sleep tonite. ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "i think ur right!! hahaha!! 4.5 hrs now!! ",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "I'm goin' to follow u, since u didn't  LOL  GO ANGELS!",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "u guys r the best!!",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "im meeting up with one of my besties tonight! Cant wait!!  - GIRL TALK!!",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "Thans for your response. Ihad already find this answer",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "crazy day of school. there for 10 hours straiiight. bout to watch the hills.",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "you shud do tha same",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "kitteh is sleepin on my crotch which proves she likes me more",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "hAhAHA!! omG! we wer bOth laughiN off d hOOk!  cuz das hOW we roLLL...ryt sheLdawg?",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "having a long conversation with mom on phone",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "yayyy! lol. i just requested herrr. what did she say?",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "today is our two month anniversary!!! i love you sooooooo much Diana. omg you dont even know ",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "Just tryna get inspired thats all",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "Aw dont you love that  I love for those days! Thanks about the pic ",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "hand is still pretty weak i cant like punch anyone out yet or turn knobs but it doesnt hurt much",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "your telling me.. just finished doing 200 crunches! LETS GO!",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "ur home is where? ohhh i nkow lexington ky rite next to me",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "Just spoke with my fam in #Japan via #Skype! Love to see my little 16-mo-old nephew growing!",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "haha! i'm not saying u should try it.. but maybe u should",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "back from school, long walk! its flippin cold outside  2 days ago it was sunny, next day raining, and today snowing!",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "k. ill try to figure it out. gonna go to bed. night night",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "Oh its real Jon!  We all r so excited that u and the guys came back 4 us.  We appreciate all you put out there!",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "Thank you! Am at home pretty much everywhere. Provided I have broadband ...kiddin' ",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "Callin it a night! I always have the best sleep after a gud workout!!",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "hmmm, sure sure  so what r u upto ? hows the day for u?",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "I agree.  My kids got 'Who am I' 4 Christmas. It's bn fun but I caught my 4 yrold cheating by looking at reflection in TV",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "WHATCHA CHUCKLIN BOUT MS.YEN",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "Hellz yeah, definitely downloading. Thanks ",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "we are so stinkin cute",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "pullin an all nighter wit my bffl madison",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "going to bed. My bb isn't working and I'm bored.  Night all. Love me harder tomorrow, than you did today.",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "ROflmao... niqqa please. you ackin' a fool now.",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "oh oh oh!!! gonna go buy Twilight on DVD today  I have to extend my overdraft for the 2nd time in as many weeks so I may aswell!!",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "just got home from school (: meant to be getting my hair cut .. but i cbf. lol dancing soon",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "Sleeeeeeeeeep, then an interview tomorrow! Wish me luck ",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "not there yet. And i beleive so  red carpet sighting i hope.",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "Couldnt agree more!The unison and committment was incredible.Considering the pressure they r under made it all the more amazing",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "heyyyyyy want to hook it up!! lol",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "I'm gunnna do both of those things",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "Congrats from Peru! You were/are amazing! i was speechless,thank u so much! come here someday plz, ill wait forever seriously! ",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "Much Luv to Mary and John who's now following me on twitter!!",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "God sho love him some me  feeling really really blessed tonight++++++",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "LOL not yet my brutha from anotha mutha",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "hum nice 1! lol take something..LOL yeah party over there, haha u kno them drunk ass's  Will i b seeing you @ Janets party??",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "Sorry I am talking to my best friend.. So I havent replied!!  But I can talk to you too!",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "oh ok then im gonna go and buy one for when i come up there",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "Goooooood morning, Chubbx  how are you today?",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "thats most excellent  lotsa people loving you hehe *Winks*",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "Juz watchin' 3 eps. of your show HM, I must say I instantly became a fan of urs! Lovin' ur humor so mucho! More power 2 u! ",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "HEYYYYYYYYYYY YOU",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "Studying philosophy and math... BLAH aka listening to music and on twitter, facebook, and myspace ",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "Will u ask Donnie if he got the gift from my 9 yr old lastnight?",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'He is upset that he can't update his Facebook by texting it, and might cry as a result. He also has school today.'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I dove for the ball many times, and managed to save 50%, but the rest went out of bounds.'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'My whole body feels itchy and like it's on fire.'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'No, it's not behaving at all, so I'm mad. Why am I here? I can't see you all the way over there.'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'Hey, long time no see! Yes, it is raining a bit, but only a bit. I'm fine, thanks. How are you?'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'No, they didn't have it.'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'If it counts, I don't know why I did either. You never talk to me anymore.'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'Hollis' death scene will severely hurt to watch on film. Why isn't the director's cut out now?'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I've always wanted to see Rent! I love the soundtrack!'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I baked you a cake, but I ate it. '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I'm sad now, Miss Lilly. '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'Oh, that's Leslie! Okay, I won't do it again, so Leslie won't get mad. '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'Someone hacked my account on AIM, and now I have to make a new one.'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I want to go to promote 'Gear and Groove', but unfortunately I have no ride there. I may be going to the one in Anaheim in May, though.'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I thought sleeping in was going to be an option tomorrow, but I am now realizing that it isn't since I have evaluations in the morning and work in the afternoon. '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I love you, too! It is 1 AM here and I miss you. '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I'll tell you the story later, but it's not a good day and I'll be working for three more hours. '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I really don't feel like getting up today, but I've got to study for tomorrow's practical exam. '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I so wish I was there to see you finally being comfortable! I'm sad that I missed it.'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I put the vacation photos online a few years ago, but my computer crashed, and now I forgot the name of the site. '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I'm not sure what they are. As much as I want to, I don't think I can trade company assets. Sorry, Andy!'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'Where did you move to? I thought you were already in San Diego? It's random that you found me, but glad to hear you're doing well!'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I miss my PS3. It's out of commission. What are you playing? Did you get 'Blood On the Sand'? '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I'm just leaving the parking lot at work. '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'It's too bad that I won't be around. I lost my job and can't even pay my phone bill.'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'More jobs, no money. How in the hell is minimum wage here 4 dollars an hour? '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'Dude, I don't really look at them unless someone says 'Hey, I added you!' Sorry I'm so terrible at that, I need a pop-up! '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'He wonders why someone that you like so much can make you so unhappy in a split second. I'm depressed.'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I just got your newsletter. Those fares are really unbelievable. It's a shame I already booked and paid for mine.'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I missed you at the meeting. What's up, mama?'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'Wednesday is my birthday and I don't know what to do! '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'Do you really enjoy being with him? If the problems are constant, you should think about things more, and find someone you like. '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'Rylee and Grace, do you want to go to Steve's party or not? Sadly, since it's Easter, I won't to be able to do much, but oh well. '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'It's a bad night for my favorite teams: Astros and Spartans lost. The night out with T.W. was good. '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'Cool, I will. There are all kinds of complaints about this laptop online about overheating, but there haven't been any recalls.'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I hope you're okay. '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'Yeah, but I know I wouldn't stand a chance. '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I can't sleep and it's 1:30 AM. '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I miss you all too. I'm leaving to BH tomorrow morning, I think. I want to go to the beach with you girls!'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I'm missing you, babe, but as long as you're alive, I'm happy. I'm tired, my love. I'm going to try to sleep, so hopefully you had a head start!'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'No fantasy ftar yesterday. I'm going to work.'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I had it on my page for so long until it got deleted. It's a sad day in history.'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'My iPod's acting weird, too. 'Jai Ho' and 'Thinking of You' aren't playing the full songs.'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'Danny, I'm upset that I wasn't here to watch the live chat, since I was in a car for 3 hours on a trip. I'm so upset! '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'He is watching the hill, and it's making me sad.'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I miss my buddy. I'll be in New York on the 25th. '",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'He wants to go out.'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'He is not going to sleep tonight.'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I think you're right! It's been 4.5 hours now!'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'I'm going to follow you, since you didn't. GO ANGELS!'",
+      "intent": "Negative",
+      "entities": []
+    },
+    {
+      "text": "'You guys are the best!'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'I'm meeting up with one of my best friends tonight! Can't wait! We'll have GIRL TALK!'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Thanks for your response. I had already found this answer.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'It was a crazy day of school. I was there for 10 hours straight. I am about to watch The Hills.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'You should do the same.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'The kitten is sleeping on my crotch which proves she likes me more.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Oh my God! We were both laughing off the hood! Because that's how we roll, right Shelly?'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'I'm having a long conversation with Mom on the phone.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Yay! I just requested her. What did she say?'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Today is our two month anniversary! I love you so much, Diana. Oh my God, you don't even know!'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Just trying to get inspired, that's all.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Oh, don't you love that I live for those days! Thank you for the picture!'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'My hand is still pretty weak. I can't punch anyone out yet or turn knobs, but it doesn't hurt too much.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'You're telling me! I just finished doing 200 crunches! Let's Go!'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Where is your home? Oh, I know Lexington, KY. It is right next to me.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'I just spoke with my family in Japan via Skype. I love to see my little 16 month old nephew growing!'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'I'm not saying you should try it, but maybe you should.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'I'm back from school, it was a long walk. It's so flipping cold outside. Two days ago it was sunny, the next day it was raining and today it's snowing!'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Okay, I'll try to figure it out. I'm going to go to bed. Goodnight.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Oh, It's real, Jon! We all are so excited that you and the guys came back for us. We appreciate all that you put out there!'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Thank you! I am at home pretty much anywhere, provided I have broadband. Just kidding.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'I am calling it a night! I always have the best sleep after a good workout!'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Hmmm, sure. So what are you up to? How was your day?'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'I agree. My kids got 'Who am I' for Christmas. It has been fun but I caught my 4 year old cheating by looking in the reflection of the TV.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'What are you laughing about Ms. Yen?'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Hell yeah, I'm definitely downloading it. Thanks.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'We are so stinking cute.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'I am pulling an all nighter with my best friend for life, Madison.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'I'm going to bed. My baby isn't working and I am bored. Goodnight everyone. Tomorrow, love me harder than you did today.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'I'm laughing so hard. Nigger please, you are acting like a fool right now.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Oh! I'm going to go buy Twilight on DVD today. I have to extend my overdraft for the second time in as many weeks, so I might as well!'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'I just got home from school. I meant to get my hair cut but I can't. I am dancing soon.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'I'm going to sleep, I have an interview tomorrow! Wish me luck.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'I'm not there yet. And I believe so. I hope there is a red carpet sighting.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'I couldn't agree more! The unity and commitment was incredible. Considering the pressure they are under made it all the more amazing.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Hey, I want to get together.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'I'm going to do both of those things.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Congratulations from Peru! You were and are amazing! I was speechless, thank you so much! Please come her someday, I'll seriously wait forever.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Sending much love to Mary and John, who are now both folling me on Twitter.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'God sure does love me. I'm feeling really blessed tonight.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Not yet my brother from another mother.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Nice one! I'll take something. Yeah, there's a party over there. You know how much they drink. Will I be seeing you at Janet's party?'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'I am sorry, I am talking to my best friend so I haven't replied! But I can talk to you, too.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Oh, ok. Then I'm going to go and buy one for when I come visit.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Good morning, Chubbx! How are you today?'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'That is most excellent! There are a lot of people loving you.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'I'm just watching three episodes of your show HM. I must say, I instantly became a fan of yours! I am loving your humor so much! More power to you!'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Hey you!'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'I'm studying philosophy and math, also known as listening to music and being on Twitter, Facebook and Myspace.'",
+      "intent": "Positive",
+      "entities": []
+    },
+    {
+      "text": "'Will you ask Donnie if he got the gift from my 9 year old last night?'",
+      "intent": "Positive",
+      "entities": []
+    }
+  ],
+  "versionId": "0.1",
+  "settings": [],
+  "luis_schema_version": "3.2.0",
+  "prebuiltEntities": [],
+  "regex_entities": [],
+  "desc": "Intent Recognition App for Original and Corrected Sentences",
+  "closedLists": [],
+  "composites": []
+}
