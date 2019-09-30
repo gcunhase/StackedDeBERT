@@ -1,15 +1,22 @@
 import dialogflow
+# import dialogflow_v2 as dialogflow
+from google.cloud import storage
 import argparse
 import uuid
-from baseline.base_utils import INTENTION_TAGS
+from base_utils import SENTIMENT_TAGS
 import csv
 from sklearn.metrics import precision_recall_fscore_support
-from utils import ensure_dir
 import json
+import os
 
 # https://dialogflow-python-client-v2.readthedocs.io/en/latest/
 
 GOOGLE_APPLICATION_CREDENTIALS = '[INCLUDE PATH TO AGENT JSON FILE HERE]'
+
+
+def ensure_dir(dirname):
+    if not os.path.exists(dirname):
+        os.mkdir(dirname)
 
 
 def delete_intent(project_id, intent_id):
@@ -76,8 +83,8 @@ if __name__ == '__main__':
         default='en-US')
     parser.add_argument(
         '--dataset_name',
-        help='Options: [snips]',
-        default='snips')
+        help='Options: [sentiment140]',
+        default='sentiment140')
     parser.add_argument(
         '--results_dir',
         help='Results directory',
@@ -87,31 +94,34 @@ if __name__ == '__main__':
         help='JSON file containing intent session IDs',
         default='./intent_session_ids.json')
     parser.add_argument(
-        '--perc',
-        help='Percentage of missing words: 0.1, 0.2, 0.3, 0.4, 0.5, 0.8',
-        default=0.1)
+        '--data_type',
+        help='Data type: corr, inc, inc_with_corr',
+        default="inc_with_corr")
     args = parser.parse_args()
 
     ensure_dir(args.results_dir)
 
     dataset_arr = [args.dataset_name]
 
-    perc = float(args.perc)
-    complete = False
-    if perc == 0.0:
-        complete = True
-
-    data_dir_path = "../../data/snips_intent_data/"
-    if complete:
-        data_dir_path += "complete_data/"
-        scores_file_root = args.results_dir + 'complete/'
+    data_dir_path = "../../data/twitter_sentiment_data/sentiment140"
+    if args.data_type == "corr":
+        data_dir_path += "_corrected_sentences/"
+        app_name = "IntentClassification-{}-corr".format(args.dataset_name)
+        app_description = "Intent Recognition App for Corrected Sentences"
+    elif args.data_type == "inc":
+        data_dir_path += "/"
+        app_name = "IntentClassification-{}-inc".format(args.dataset_name)
+        app_description = "Intent Recognition App for Original, Incorrect Sentences"
     else:
-        data_dir_path += "comp_with_incomplete_data_tfidf_lower_{}_noMissingTag/".format(perc)
-        scores_file_root = args.results_dir + 'comp_inc_{}/'.format(perc)
+        data_dir_path += "_inc_with_corr_sentences/"
+        app_name = "IntentClassification-{}-inc-corr".format(args.dataset_name)
+        app_description = "Intent Recognition App for Original and Corrected Sentences"
+    # data_dir_path += type + '.tsv'
+    scores_file_root = args.results_dir + '{}/'.format(args.data_type)
     ensure_dir(scores_file_root)
 
     for dataset in dataset_arr:
-        tags = INTENTION_TAGS[dataset]
+        tags = SENTIMENT_TAGS[dataset]
 
         scores_file = scores_file_root + dataset + ".json"
 
@@ -141,11 +151,7 @@ if __name__ == '__main__':
 
         [precision, recall, fscore, support] = precision_recall_fscore_support(test_intents_labels_arr, detected_intent,
                                                                                average='micro')
-        txt_print = "Results for {} dataset".format(dataset)
-        if complete:
-            txt_print += " with complete data "
-        else:
-            txt_print += " with comp and incomplete data with {} perc".format(perc)
+        txt_print = "Results for {} dataset with {} data".format(dataset, args.data_type)
         print(txt_print)
         print("precision: ", precision)
         print("recall: ", recall)

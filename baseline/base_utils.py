@@ -6,22 +6,7 @@ INTENTION_TAGS = {
               '3': 'PlayMusic',
               '4': 'RateBook',
               '5': 'SearchCreativeWork',
-              '6': 'SearchScreeningEvent'},
-    'ChatbotCorpus': {'0': 'DepartureTime',
-                      '1': 'FindConnection'},
-    'AskUbuntuCorpus': {'0': 'MakeUpdate',
-                        '1': 'SetupPrinter',
-                        '2': 'ShutdownComputer',
-                        '3': 'SoftwareRecommendation',
-                        '4': 'None'},
-    'WebApplicationsCorpus': {'0': 'ChangePassword',
-                              '1': 'DeleteAccount',
-                              '2': 'DownloadVideo',
-                              '3': 'ExportData',
-                              '4': 'FilterSpam',
-                              '5': 'FindAlternative',
-                              '6': 'SyncAccounts',
-                              '7': 'None'}
+              '6': 'SearchScreeningEvent'}
 }
 
 INTENTION_TAGS_WITH_SPACE = {
@@ -31,42 +16,30 @@ INTENTION_TAGS_WITH_SPACE = {
               '3': 'PlayMusic',
               '4': 'RateBook',
               '5': 'SearchCreativeWork',
-              '6': 'SearchScreeningEvent'},
-    'ChatbotCorpus': {'0': 'DepartureTime',
-                      '1': 'FindConnection'},
-    'AskUbuntuCorpus': {'0': 'Make Update',
-                        '1': 'Setup Printer',
-                        '2': 'Shutdown Computer',
-                        '3': 'Software Recommendation',
-                        '4': 'None'},
-    'WebApplicationsCorpus': {'0': 'Change Password',
-                              '1': 'Delete Account',
-                              '2': 'Download Video',
-                              '3': 'Export Data',
-                              '4': 'Filter Spam',
-                              '5': 'Find Alternative',
-                              '6': 'Sync Accounts',
-                              '7': 'None'}
+              '6': 'SearchScreeningEvent'}
 }
 
 
+SENTIMENT_TAGS = {'sentiment140': {'0': 'Negative',
+                                   '1': 'Positive'},
+                  }
+
 LABELS_ARRAY_INT = {
     "snips": [0, 1, 2, 3, 4, 5, 6],
-    "chatbotcorpus": [0, 1],
-    "askubuntucorpus": [0, 1, 2, 3, 4],
-    "webapplicationscorpus": [0, 1, 2, 3, 4, 5, 6, 7],
+    "sentiment140": [0, 1],
 }
 
 LABELS_ARRAY = {
     "snips": ["0", "1", "2", "3", "4", "5", "6"],
-    "chatbotcorpus": ["0", "1"],
-    "askubuntucorpus": ["0", "1", "2", "3", "4"],
-    "webapplicationscorpus": ["0", "1", "2", "3", "4", "5", "6", "7"],
+    "sentiment140": ["0", "1"],
 }
 
 
-def get_label(dataset_name, intent_name):
-    tags = INTENTION_TAGS[dataset_name]
+def get_label(dataset_name, intent_name, dict_type="intention"):
+    if dict_type == "intention":
+        tags = INTENTION_TAGS[dataset_name]
+    else:
+        tags = SENTIMENT_TAGS[dataset_name]
     for k, v in tags.items():
         if intent_name.lower() in v.lower():
             return int(k)

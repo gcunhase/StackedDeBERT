@@ -1,5 +1,5 @@
 import csv
-from baseline.base_utils import INTENTION_TAGS
+from baseline.base_utils import SENTIMENT_TAGS
 from collections import defaultdict
 
 ''' Convert .tsv to .csv without header for each intent
@@ -10,20 +10,26 @@ example2
 exampleN
 '''
 
-complete = False
-perc = 0.8
-dataset_arr = ['snips']
+# Data type: inc, corr, inc_with_corr
+data_type = "corr"
+dataset_arr = ['sentiment140']
 
 for dataset in dataset_arr:
-    tags = INTENTION_TAGS[dataset]
+    tags = SENTIMENT_TAGS[dataset]
 
     for type in ['train', 'test']:
-        # Data dir path
-        data_dir_path = "../../data/snips_intent_data/"
-        if complete:
-            data_dir_path += "complete_data/"
+
+        data_dir_path = "../../data/twitter_data/sentiment140"
+        if data_type == "corr":
+            data_dir_path += "_corrected_sentences/"
+            # app_description = "Sentiment Recognition App for Corrected Sentences"
+        elif data_type == "inc":
+            data_dir_path += "/"
+            # app_description = "Sentiment Recognition App for Original, Incorrect Sentences"
         else:
-            data_dir_path += "incomplete_data_noTag/comp_with_incomplete_data_tfidf_lower_{}_noMissingTag/{}.tsv".format(perc, type)
+            data_dir_path += "_inc_with_corr_sentences/"
+            # app_description = "Sentiment Recognition App for Original and Corrected Sentences"
+        data_dir_path += type + '.tsv'
 
         # Read tsv
         tsv_file = open(data_dir_path)

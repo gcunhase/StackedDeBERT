@@ -10,12 +10,12 @@ INTENTION_TAGS = {
               'PlayMusic': 3,
               'RateBook': 4,
               'SearchCreativeWork': 5,
-              'SearchScreeningEvent': 6},
+              'SearchScreeningEvent': 6}
 }
 
 SENTIMENT_TAGS = {'Sentiment140': {'Negative': 0,
-                                   'Positive': 1},
-                 }
+                                   'Positive': 1}
+                  }
 
 MISS_TAG = ''
 

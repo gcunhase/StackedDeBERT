@@ -1,12 +1,28 @@
 #coding: utf-8
 from __future__ import unicode_literals
+import sys
+import re
+import os
+import codecs
+import json
 import csv
+import spacy
+import sklearn
 import numpy as np
+import matplotlib.pyplot as plt
 from collections import OrderedDict
+from sklearn import model_selection
+from time import time
+from sklearn.feature_extraction.text import TfidfVectorizer, HashingVectorizer, CountVectorizer
+from sklearn.feature_selection import SelectFromModel, SelectKBest, chi2
+from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.neighbors.nearest_centroid import NearestCentroid
 import math
 import random
 from tqdm import tqdm
-from nltk.corpus import wordnet
+import timeit
+import gc
+import spacy
 
 
 def get_synonyms(word, number=3):

@@ -1,18 +1,18 @@
 
-dir_path = './results/results_semhash_nomissingtag_10runs/'
+dir_path = './results/results_semhash_twitter_sentiment140_10runs/'
 
 runs = 10
 
-for perc in [0.1, 0.2, 0.3, 0.4, 0.5, 0.8]:
+for data_type in ["corr", "inc", "inc_with_corr"]:
     str_write = ''
-    for dataset_name in ['snips']:
+    for dataset_name in ['sentiment140']:
         str_write += dataset_name + '\n'
 
         acc_avg = 0
         acc_max = 0
         for run in range(1, runs + 1):
             acc = 0
-            subdir_path = dir_path + 'comp_inc_{}_run{}/'.format(perc, run)
+            subdir_path = dir_path + '{}_run{}/'.format(data_type, run)
             filename = subdir_path + '{}_f1.txt.txt'.format(dataset_name)
             f = open(filename, 'r')
             lines = f.read().split('\n')
@@ -32,6 +32,5 @@ for perc in [0.1, 0.2, 0.3, 0.4, 0.5, 0.8]:
         acc_avg /= runs
         str_write += '  Avg-{}: {:.2f}\n'.format(runs, acc_avg * 100)
         str_write += '  Best-{}: {:.2f}\n\n'.format(runs, acc_max * 100)
-    print("Saving to: {}".format(dir_path + 'comp_inc_{}'.format(perc)))
-    f_out = open(dir_path + 'comp_inc_{}'.format(perc), 'w')
+    f_out = open(dir_path + data_type, 'w')
     f_out.write(str_write)

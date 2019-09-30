@@ -2,16 +2,20 @@ import dialogflow
 from google.cloud import storage
 import argparse
 import uuid
-from baseline.base_utils import INTENTION_TAGS
+from base_utils import SENTIMENT_TAGS
 import csv
 from sklearn.metrics import precision_recall_fscore_support
-from utils import ensure_dir
 import json
+import os
 
 # https://dialogflow-python-client-v2.readthedocs.io/en/latest/
 
 GOOGLE_APPLICATION_CREDENTIALS = '[INCLUDE PATH TO AGENT JSON FILE HERE]'
 
+
+def ensure_dir(dirname):
+    if not os.path.exists(dirname):
+        os.mkdir(dirname)
 
 def explicit_auth():
     storage_client = storage.Client.from_service_account_json(GOOGLE_APPLICATION_CREDENTIALS)
@@ -68,16 +72,16 @@ if __name__ == '__main__':
         default='en-US')
     parser.add_argument(
         '--dataset_name',
-        help='Options: [snips]',
-        default='snips')
+        help='Options: [sentiment140]',
+        default='sentiment140')
     parser.add_argument(
         '--results_dir',
         help='Results directory',
         default='./results/')
     parser.add_argument(
-        '--perc',
-        help='Percentage of missing words: 0.1, 0.2, 0.3, 0.4, 0.5, 0.8',
-        default=0.1)
+        '--data_type',
+        help='Data type: corr, inc, inc_with_corr',
+        default="inc_with_corr")
     args = parser.parse_args()
 
     ensure_dir(args.results_dir)
@@ -87,22 +91,19 @@ if __name__ == '__main__':
 
     dataset_arr = [args.dataset_name]
 
-    perc = float(args.perc)
-    complete = False
-    if perc == 0.0:
-        complete = True
-
-    data_dir_path = "../../data/snips_intent_data/"
-    if complete:
-        data_dir_path += "complete_data/"
-        scores_file_root = args.results_dir + 'complete/'
+    data_dir_path = "../../data/twitter_sentiment_data/sentiment140"
+    if args.data_type == "corr":
+        data_dir_path += "_corrected_sentences/"
+    elif args.data_type == "inc":
+        data_dir_path += "/"
     else:
-        data_dir_path += "comp_with_incomplete_data_tfidf_lower_{}/".format(perc)
-        scores_file_root = args.results_dir + 'comp_inc_{}/'.format(perc)
+        data_dir_path += "_inc_with_corr_sentences/"
+    # data_dir_path += type + '.tsv'
+    scores_file_root = args.results_dir + '{}/'.format(args.data_type)
     ensure_dir(scores_file_root)
 
     for dataset in dataset_arr:
-        tags = INTENTION_TAGS[dataset]
+        tags = SENTIMENT_TAGS[dataset]
 
         scores_file = scores_file_root + dataset + ".json"
 

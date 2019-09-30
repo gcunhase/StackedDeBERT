@@ -1,0 +1,17 @@
+{
+	"sentiment140_corr": {
+		"DEVELOPER_TOKEN": "YOUR developer token for Sentiment140 Twitter Corr Bot",
+		"REQUEST_TOKEN": "YOUR request token for Sentiment140 Twitter Corr Bot",
+		"name": "sentimentclass-corr"
+	},
+	"sentiment140_inc": {
+		"DEVELOPER_TOKEN": "YOUR developer token for Sentiment140 Twitter Inc Bot",
+		"REQUEST_TOKEN": "YOUR request token for Sentiment140 Twitter Inc Bot",
+		"name": "sentimentclass-inc"
+	},
+	"sentiment140_inc_with_corr": {
+		"DEVELOPER_TOKEN": "YOUR developer token for Sentiment140 Twitter Inc+Corr Bot",
+		"REQUEST_TOKEN": "YOUR request token for Sentiment140 Twitter Inc+Corr Bot",
+		"name": "sentimentclass-inc_with_corr"
+	}
+}

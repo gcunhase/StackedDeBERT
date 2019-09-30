@@ -1,19 +1,4 @@
 {
-	"ChatbotCorpus": {
-		"DEVELOPER_TOKEN": "YOUR developer token for ChatbotCorpus Bot",
-		"REQUEST_TOKEN": "YOUR request token for ChatbotCorpus Bot",
-		"name": "intentclass-chatbot"
-	},
-	"AskUbuntuCorpus": {
-		"DEVELOPER_TOKEN": "YOUR developer token for AskUbuntuCorpus Bot",
-		"REQUEST_TOKEN": "YOUR request token for AskUbuntuCorpus Bot",
-		"name": "intentclass-askubuntu"
-	},
-	"WebApplicationsCorpus": {
-		"DEVELOPER_TOKEN": "YOUR developer token for WebAppsCorpus Bot",
-		"REQUEST_TOKEN": "YOUR request token for WebAppsCorpus Bot",
-		"name": "intentclass-webapps"
-	},
 	"snips": {
 		"DEVELOPER_TOKEN": "YOUR developer token for SNIPS Bot",
 		"REQUEST_TOKEN": "YOUR request token for SNIPS Bot",

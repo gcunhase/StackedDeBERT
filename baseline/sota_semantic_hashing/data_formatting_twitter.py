@@ -1,5 +1,5 @@
 import csv
-from baseline.base_utils import INTENTION_TAGS, INTENTION_TAGS_WITH_SPACE
+from baseline.base_utils import SENTIMENT_TAGS
 
 ''' Convert .tsv to .csv without header for each intent
 Format:
@@ -9,22 +9,23 @@ example2 intent1
 exampleN intentM
 '''
 
-complete = False
-dataset_arr = ['snips']
+data_type_arr = ["corr", "inc", "inc_with_corr"]
+dataset_arr = ['sentiment140']
 
-for perc in [0.1, 0.2, 0.3, 0.4, 0.5, 0.8]:
+for data_type in data_type_arr:
     for dataset in dataset_arr:
-        tags = INTENTION_TAGS_WITH_SPACE[dataset]
+        tags = SENTIMENT_TAGS[dataset]
 
         for type in ['test', 'train']:
             # Data dir path
-            data_dir_path = "../../data/snips_intent_data/"
-            if complete:
-                data_dir_path += "complete_data/"
+            data_dir_path = "../../data/twitter_sentiment_data/sentiment140"
+            if data_type == "corr":
+                data_dir_path += "_corrected_sentences/"
+            elif data_type == "inc":
+                data_dir_path += "/"
             else:
-                data_dir_path += "comp_with_incomplete_data_tfidf_lower_{}_noMissingTag/".format(perc)
-            data_dir_path += "{}.tsv".format(type)
-
+                data_dir_path += "_inc_with_corr_sentences/"
+            data_dir_path += '{}.tsv'.format(type)
             tsv_file = open(data_dir_path)
             reader = csv.reader(tsv_file, delimiter='\t')
 
