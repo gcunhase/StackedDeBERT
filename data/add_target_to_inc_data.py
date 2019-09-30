@@ -1,20 +1,16 @@
 import argparse
-import requests
 import os
-import glob
 import csv
-import json
-import random
-import numpy as np
-from utils import ensure_dir, get_project_path, MISS_TAG
+from utils import ensure_dir, get_project_path
 from collections import defaultdict
-import pandas as pd
 
 
 # POS-tag for irrelevant tag selection
 import nltk
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
+
+__author__ = "Gwena Cunha"
 
 
 def write_tsv(intention_dir_path, filename, keys, dict):
@@ -79,9 +75,9 @@ def init_args():
                         help='Directory to save subdirectories, needs to be an absolute path')
     parser.add_argument('--complete_data_dir', type=str, default="complete_data",
                         help='Subdirectory with complete data')
-    parser.add_argument('--incomplete_data_dir', type=str, default="incomplete_data_tfidf_lower_0.8",
+    parser.add_argument('--incomplete_data_dir', type=str, default="incomplete_data_tfidf_lower_0.8_noMissingTag",
                         help='Subdirectory with incomplete data')
-    parser.add_argument('--results_dir', type=str, default="incomplete_data_tfidf_lower_with_target_0.8",
+    parser.add_argument('--results_dir', type=str, default="incomplete_data_tfidf_lower_with_target_0.8_noMissingTag",
                         help='Subdirectory to save Joint Complete and Incomplete data')
 
     return parser.parse_args()

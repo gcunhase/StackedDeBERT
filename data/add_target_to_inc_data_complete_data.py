@@ -3,18 +3,16 @@ import requests
 import os
 import glob
 import csv
-import json
-import random
-import numpy as np
 from utils import ensure_dir, get_project_path, MISS_TAG
 from collections import defaultdict
-import pandas as pd
 
 
 # POS-tag for irrelevant tag selection
 import nltk
 nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
+
+__author__ = "Gwena Cunha"
 
 
 def write_tsv(intention_dir_path, filename, keys, dict):

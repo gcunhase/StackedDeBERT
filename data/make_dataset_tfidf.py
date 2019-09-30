@@ -9,8 +9,7 @@ import operator
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-
-'''INCOMPLETE CODE, tf-idf code seems weird'''
+__author__ = "Gwena Cunha"
 
 
 # percentage of words missing in sentence

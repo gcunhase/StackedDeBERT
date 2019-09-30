@@ -1,12 +1,13 @@
 
 import argparse
-from utils import write_tsv
+from data.make_dataset import write_tsv
 from utils import get_project_path, MISS_TAG
 import csv
 from collections import defaultdict
 import os
 
-OLD_MISS_TAG = '<miss>'
+# OLD_MISS_TAG = '<miss>'
+OLD_MISS_TAG = '_'
 
 
 def change_tag(root_data_dir, data_dir):
@@ -54,7 +55,7 @@ def init_args():
     parser = argparse.ArgumentParser(description="Script to make intention recognition dataset")
     parser.add_argument('--root_data_dir', type=str, default=get_project_path() + "/data",
                         help='Directory to save subdirectories, needs to be an absolute path')
-    parser.add_argument('--data_dir', type=str, default="incomplete_data_tfidf_0.5",
+    parser.add_argument('--data_dir', type=str, default="incomplete_data_tfidf_lower_0.8_MASKtag",
                         help='Subdirectory to save processed Intention Classification data')
 
     return parser.parse_args()
