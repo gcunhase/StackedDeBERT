@@ -1,7 +1,3 @@
-## About
-* Incomplete Intent Classification Dataset
-* Twitter Sentiment Classification Dataset 
-
 ## Contents
 [Incomplete Intent Data](#1-incomplete-intent-dataset) • [Twitter Sentiment Data](#2-twitter-sentiment-dataset) • [Joint Comp/Inc](#3-joint-completeincomplete-data)
 
