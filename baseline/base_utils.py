@@ -7,7 +7,7 @@ INTENTION_TAGS = {
               '4': 'RateBook',
               '5': 'SearchCreativeWork',
               '6': 'SearchScreeningEvent'},
-    'chatbot': {'0': 'DepartureTime',
+    'ChatbotCorpus': {'0': 'DepartureTime',
                 '1': 'FindConnection'}
 }
 
@@ -19,7 +19,7 @@ INTENTION_TAGS_WITH_SPACE = {
               '4': 'RateBook',
               '5': 'SearchCreativeWork',
               '6': 'SearchScreeningEvent'},
-    'chatbot': {'0': 'DepartureTime',
+    'ChatbotCorpus': {'0': 'DepartureTime',
                 '1': 'FindConnection'}
 }
 
@@ -30,11 +30,13 @@ SENTIMENT_TAGS = {'sentiment140': {'0': 'Negative',
 
 LABELS_ARRAY_INT = {
     "snips": [0, 1, 2, 3, 4, 5, 6],
+    "chatbotcorpus": [0, 1],
     "sentiment140": [0, 1],
 }
 
 LABELS_ARRAY = {
     "snips": ["0", "1", "2", "3", "4", "5", "6"],
+    "chatbotcorpus": ["0", "1"],
     "sentiment140": ["0", "1"],
 }
 

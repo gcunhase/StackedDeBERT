@@ -33,7 +33,7 @@ python -m spacy download en_core_web_lg
  conda install -c mutirri google-api-python-client
  ```
 * Create Agent at [cloud platform project](https://console.dialogflow.com/api-client) 
-* Click on `Service Account` link and create key (download `json` file and save it in dialogflow folder)
+* Click on [`Service Account`](https://console.cloud.google.com/iam-admin/serviceaccounts?project=intent-stterror-mihupt) link and create key (download `json` file and save it in dialogflow folder)
 * Add intents and train: `python dialogflow/train.py --dataset_name snips --perc 0`
 * Immediately go your agent's site and wait for a green pop up that says "Agent training complete"
 * Evaluate: `python dialogflow/eval.py --dataset_name snips --perc 0`
