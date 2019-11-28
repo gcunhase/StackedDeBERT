@@ -8,7 +8,10 @@ aiohttp
 rasa
 rasa_nlu
 spacy
+sklearn
 sklearn_crfsuite
+matplotlib
 tensorflow
 pandas_ml
 unicodecsv
+nltk

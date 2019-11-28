@@ -6,7 +6,9 @@ INTENTION_TAGS = {
               '3': 'PlayMusic',
               '4': 'RateBook',
               '5': 'SearchCreativeWork',
-              '6': 'SearchScreeningEvent'}
+              '6': 'SearchScreeningEvent'},
+    'chatbot': {'0': 'DepartureTime',
+                '1': 'FindConnection'}
 }
 
 INTENTION_TAGS_WITH_SPACE = {
@@ -16,7 +18,9 @@ INTENTION_TAGS_WITH_SPACE = {
               '3': 'PlayMusic',
               '4': 'RateBook',
               '5': 'SearchCreativeWork',
-              '6': 'SearchScreeningEvent'}
+              '6': 'SearchScreeningEvent'},
+    'chatbot': {'0': 'DepartureTime',
+                '1': 'FindConnection'}
 }
 
 
