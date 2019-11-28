@@ -1,15 +1,18 @@
 ## Baseline models
 * Know-Your-Intent
-* Snips NLU Corpus
+* NLU Services
 
 ## Dependencies
 ```
 pip install -r requirements.txt
 pip install tqdm boto3 requests matplotlib ftfy pandas unicodecsv pandas
 ```
+> If `setuptools` error appears: `sudo apt-get install python-setuptools` 
+
 > If using conda environment, change pip to conda or easy_install
 
 ## Know-Your-Intent
+* Python 3.5/3.6 (otherwise there's a `expected unicode but received string` error)
 * Paper: *Subword Semantic Hashing for Intent Classification on Small Datasets* [[arXiv](https://arxiv.org/abs/1810.07150)] [[code](https://github.com/kumar-shridhar/Know-Your-Intent/blob/master/updated_semhash_pipeline.ipynb)]
 * Requirements
 ```
@@ -18,7 +21,7 @@ python -m spacy download en_core_web_lg
 ```
 
 * Obtain formatted dataset: `python sota_semantic_hashing/data_formatting.py`
-* Run `python sota_semantic_hashing/main_original_paper.py` for each dataset and perc
+* Run `python sota_semantic_hashing/main_multiple_runs.py` for each dataset and perc
 * Obtain file with best and average accuracies for each dataset and perc: `python sota_semantic_hashing/get_best_sem_acc.py`
 * P.S: Best out of all classifiers is stored in Wiki
 
