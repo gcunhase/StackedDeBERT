@@ -1,0 +1,528 @@
+{
+  "luis_schema_version": "3.2.0",
+  "versionId": "0.1",
+  "name": "SttErrorIntentClassification-chatbot-macsay_witai",
+  "desc": "STT Error Intent Recognition App",
+  "culture": "en-us",
+  "tokenizerVersion": "1.0.0",
+  "intents": [
+    {
+      "name": "DepartureTime"
+    },
+    {
+      "name": "FindConnection"
+    }
+  ],
+  "entities": [],
+  "composites": [],
+  "closedLists": [],
+  "patternAnyEntities": [],
+  "regex_entities": [],
+  "prebuiltEntities": [],
+  "model_features": [],
+  "regex_features": [],
+  "patterns": [],
+  "utterances": [
+    {
+      "text": "how can i get from garching forschungszentrum green eyes arya still race rc. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "i want to travel from garching to odeonsplatz. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "show me the next bus. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "can you find a bus from quiddestraße to lehel. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when is the next ufc. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "how can i get from garching to garching. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "what's the shortest connection between quiddestraße and odeonsplatz. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "is there a bus from garching to lose that shit down sign. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "i need a connection from her and her two tries flats. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "i need to be entertained. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when does the next train leave from garching forschungszentrum. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "how can i get from garching to meal prep. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "can i take a bus from quiddestraße to hauptbahnhof. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "could you give me the fastest connection between february and i'll get it. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when does the next bus leaves from hauptbahnhof. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "how to get from bonner platz to. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "how can i get from neuperlach sued from a car usb and fast as possible. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "can you find a connection from olympus and from school at two PM. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": ". ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "how to get from garching to prove it. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "show me the next bus from matthew. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "how can i get from garching to lunch here i fancy possible. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when does the next subway departs from odeonsplatz. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "when. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "when is the next train from garching. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "how can i get to melbourne from directory. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when does the next train leaves. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "how to get promo to twenty one. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "how can i get to goldsmith from quince tree. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when is the train leaving in garching. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "delete the ad turn on that one pm can you search a connection from garching forschungszentrum. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "how can i get from garching forschungszentrum to odeonsplatz. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when does the next bus leaves at garching forschungszentrum. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "how do i get from olympia conference room fan on. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "is there a train from neuperlach syndrome to say hi three pm. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "how can i get more size to thirty four percent. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when is the next subway leaving from garching. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "what is the next connection from garching forschungszentrum to odeonsplatz. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when does the next bus leaves at roman. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "when does the next bus leave in garching. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "when does the next bus leaves at garching. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "how can i get from garching to send later. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when is the next train in lawrence ryan hall. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "is there a tram from charleston sc to level. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when is the next bus leaving from garching. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "when the next train in garching forschungszentrum is leaving. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "when is the next subway leaving at garching forschungszentrum. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "what's the cheapest way from neuperlach too low. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "connection from hauptbahnhof to odeonsplatz. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "how do i get to untere of thrones. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when is the next train in muncher freiheit. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "when is the next train in north bryan. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "when the next train in garching forschungszentrum is leaving. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "when is the next u six leaving from garching. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "can you give me a connection from garching to odeonsplatz. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when is the next train from testrail 21 turn the front door. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when does the next train departs from quiddestraße. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "how can i get from garching to garching. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "how can i get from queen st of next week. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "how can i get from garching to hauptbahnhof. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when does the next tram starts from hauptbahnhof. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "can you find the shortest way from louisville to email british food. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "connection from telstra twenty one the production. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "what is the cheapest connection between quiddestraße and hauptbahnhof. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "how can i get the new products in front door chain for a present for. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "how can i get from olympia to her and all. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "how can i get from garching forschungszentrum to odeonsplatz. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "how can i get from garching forschungszentrum. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when is the train leaving in garching. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "is there a bus from odeonsplatz to hauptbahnhof at three pm. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when is the next train from north ryan home to garching forschungszentrum. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when is tom's next train. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "when does the next train leaves from hauptbahnhof. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "from the to problem. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "how can i get from garching to odeonsplatz. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when does the next train starts at st louis territory. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "when is the next train from materials do you currently doing for the front door. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when does the next rocket leaves from garching forschungszentrum. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "hey bot when does the next bus starts at garching. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "from the mta store within ten state. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when does the next train leaves from odeonsplatz. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "when is the next train from garching. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "how do i get from marienplatz zu garching. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when does the first probably won't start. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "when the next train in garching is leaving. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "when does the next train come at garching forschungszentrum. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "when can i get those at my reunion. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "how can i get from current interest to reserve a seat. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when is the next train to the city. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "can you tell me the cheapest way from garching forschungszentrum to quiddestraße. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "what's the shortest way between hauptbahnhof and odeonsplatz. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when will the next boat depart from garching forschungszentrum. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "when is the next train. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "when is the next bus in the fourth president. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "next bus. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "how can i get from garching to marienplatz. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": " ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "how can i send later. ",
+      "intent": "FindConnection",
+      "entities": []
+    },
+    {
+      "text": "when is the next train leaving in garching. ",
+      "intent": "DepartureTime",
+      "entities": []
+    },
+    {
+      "text": "how to get promo telstra CEO 21 surprise me. ",
+      "intent": "FindConnection",
+      "entities": []
+    }
+  ],
+  "settings": []
+}
