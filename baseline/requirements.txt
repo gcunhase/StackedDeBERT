@@ -15,3 +15,9 @@ tensorflow
 pandas_ml
 unicodecsv
 nltk
+dialogflow
+google-cloud
+google-cloud-storage
+google-api-core
+requests
+sapcai
