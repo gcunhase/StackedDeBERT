@@ -17,7 +17,7 @@ pip install tqdm boto3 requests matplotlib ftfy pandas unicodecsv pandas
 * Requirements
 ```
 conda install -c conda-forge spacy
-python -m spacy download en_core_web_lg
+python -m spacy download en en_core_web_lg
 ```
 
 * Obtain formatted dataset: `python sota_semantic_hashing/data_formatting.py`
@@ -52,5 +52,5 @@ python -m spacy download en_core_web_lg
 * Requirements:
    * Python: `pip install rasa rasa_nlu sklearn_crfsuite tensorflow spacy`, `spacy download en`
    * Anaconda: `conda install -c ak_93 rasa-nlu`, `conda install -c conda-forge tensorflow spacy python-crfsuite scikit-learn nltk`, `spacy download en`, `conda install -c derickl sklean-crfsuite`
-* Pipeline: spacy, tensorflow
+* Pipeline: spacy, tensorflow (1.13.1)
 * Train with Rasa model and eval to obtain F1-score: `python rasa_train_eval.py`
