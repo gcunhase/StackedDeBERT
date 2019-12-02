@@ -31,7 +31,7 @@ python main.py --data_dir data/intent_[DATA_NAME]/
 ## 2. Twitter Sentiment Dataset
 * Tweets have natural human error (noise)
     <p align="left">
-    <img src="./assets/twitter_error_types.png" height="150" alt="Error types">
+    <img src="./assets/twitter_error_types.png" height="200" alt="Error types">
     </p>
 * Correct sentences are obtained with Amazon MTurk
     
