@@ -1,5 +1,5 @@
 ## Contents
-[Incomplete Intent Data](#1-incomplete-intent-dataset) • [Twitter Sentiment Data](#2-twitter-sentiment-dataset) • [Joint Comp/Inc](#3-joint-completeincomplete-data)
+[STT Error Data](#1-stt-error-dataset) • [Twitter Sentiment Data](#2-twitter-sentiment-dataset) • [Joint Comp/Inc](#3-joint-completeincomplete-data)
 
 ## Dependencies
 Python 3.7.2, requests, numpy, nltk
@@ -30,7 +30,18 @@ python main.py --data_dir data/intent_[DATA_NAME]/
 
 ## 2. Twitter Sentiment Dataset
 * Tweets have natural human error (noise)
-* Correct sentences obtained with Amazon MTurk
+    <p align="left">
+    <img src="./assets/twitter_error_types.png" height="150" alt="Error types">
+    </p>
+* Correct sentences are obtained with Amazon MTurk
+    
+* Examples of sentences with Natural Human error
+
+    | Original | With Error |
+    | -------- | ---------- |
+    | "goonite  sweet dreamz" | "Good night, sweet dreams." |
+    | "well i dunno..i didnt give him an ans yet" | "Well I don't know, I didn't give him an answer yet." |
+    | "u kno who am i talkin bout??" | "Do you know who I am talking about?" |
 
 ## 3. Joint Complete/Incomplete Data
 * In order for the model to be robust to missing data it also needs to be trained on sentences with missing words.
