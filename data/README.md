@@ -4,31 +4,29 @@
 ## Dependencies
 Python 3.7.2, requests, numpy, nltk
 
-## 1. Incomplete Intent Dataset
-Snips NLU Corpus: Download from [Intent Classifier repository](https://github.com/gcunhase/IntentClassifier)
+## 1. STT Error Dataset
+* Original datasets: [Snips NLU Corpus](https://github.com/snipsco/nlu-benchmark) and [Chatbot Corpus](https://github.com/sebischair/NLU-Evaluation-Corpora)
 
-* Make TF-IDF dataset
+* Make STT Error Dataset: Text-to-Speech -> audio -> Speech-to-Text
 ```
-python make_dataset_tfidf.py
+cd make_stterror_data
+python main.py --data_dir data/intent_[DATA_NAME]/
 ```
+> DATA_NAME options = [snips, chatbot]
 
-* Examples of sentences with missing words
+* Output:
+    * TTS audios, STT recovered texts, BLEU scores
+    * The `[DATA_NAME]_stt_error` directory was organized in such way to separate train and test in each TTS-STT combination
+    
+* Examples of sentences with STT error
 
-| Missing rate| Incomplete example |
-| ----------- | ------------------ |
-| 0%          | *"Please help me search the TV series A Mouse Divided."* |
-| 10%         | *"Please help _ search the TV series A Mouse Divided."* |
-| 20%         | *"Please help _ search the TV series A _ Divided."* |
-| 30%         | *"_ help _ search the TV series A _ Divided."* |
-| 40%         | *"_ _ _ search the TV series A _ Divided."* |
-| 50%         | *"_ _ _ _ the TV series A _ Divided."* |
-| 80%         | *"_ _ _ _ _ _ _ A _ Divided."* |
-> Underscore tag is there for clearer understanding of where the words are missing.
-
-* Change tags 
-```
-python change_missing_words_tag.py
-```
+    | Corpus | TTS    | BLEU score | Original | With STT error |
+    | ------ | ------ | ---------- | -------- | -------------- |
+    | Snips  | gtts   | 70.69      | "Play ep from Quasimoto from the nineties"      | *"play ep from the motor from the nineties."* |		
+    | Snips  | macsay | 62.74      | "Play ep from Quasimoto from the nineties"      | *"play game of thrones night."* |
+    | Chatbot| gtts   | 56.26      | "how can i get from garching to milbertshofen?" | *"how can i get from garching to melbourne open."* |
+    | Chatbot| macsay | 49.58      | "how can i get from garching to milbertshofen?" | *"how can i get from garching to meal prep."* |
+    > STT: Wit.ai
 
 ## 2. Twitter Sentiment Dataset
 * Tweets have natural human error (noise)
