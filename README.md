@@ -2,7 +2,7 @@
 Repository for paper titled [*""*](https://arxiv.org/abs/).
 
 ## Contents
-[Overview](#overview) • [Requirements](#requirements) • [How to Use](#how-to-use) • [Results](#results) • [How to Cite](#acknowledgement)
+[Overview](#overview) • [Requirements](#requirements) • [How to Use](#how-to-use) • [Results](#results) • [How to Cite](#acknowledgment)
 
 ## Overview
 * Task: Text classification from noisy data

@@ -28,6 +28,7 @@ python main.py --data_dir data/intent_chatbot/
     > iBLEU = 1 - BLEU
 
 ## 2. Twitter Sentiment Dataset
+* Original dataset: [Kaggle's Sentiment140](https://www.kaggle.com/kazanova/sentiment140)
 * Tweets have natural human error (noise)
     <p align="left">
     <img src="./assets/twitter_error_types.png" height="200" alt="Error types">
