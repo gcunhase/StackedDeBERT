@@ -5,28 +5,27 @@
 Python 3.7.2, requests, numpy, nltk
 
 ## 1. STT Error Dataset
-* Original datasets: [Snips NLU Corpus](https://github.com/snipsco/nlu-benchmark) and [Chatbot Corpus](https://github.com/sebischair/NLU-Evaluation-Corpora)
+* Original dataset: [Chatbot Corpus](https://github.com/sebischair/NLU-Evaluation-Corpora)
 
 * Make STT Error Dataset: Text-to-Speech -> audio -> Speech-to-Text
 ```
 cd make_stterror_data
-python main.py --data_dir data/intent_[DATA_NAME]/
+python main.py --data_dir data/intent_chatbot/
 ```
-> DATA_NAME options = [snips, chatbot]
 
 * Output:
     * TTS audios, STT recovered texts, BLEU scores
-    * The `[DATA_NAME]_stt_error` directory was organized in such way to separate train and test in each TTS-STT combination
+    * The `stterror_data/chatbot/` directory was organized in such way to separate train and test in each TTS-STT combination
     
 * Examples of sentences with STT error
 
-    | Corpus | TTS    | BLEU score | Original | With STT error |
+    | Corpus | TTS    | iBLEU      | Original | With STT error |
     | ------ | ------ | ---------- | -------- | -------------- |
-    | Snips  | gtts   | 70.69      | "Play ep from Quasimoto from the nineties"      | *"play ep from the motor from the nineties."* |		
-    | Snips  | macsay | 62.74      | "Play ep from Quasimoto from the nineties"      | *"play game of thrones night."* |
-    | Chatbot| gtts   | 56.26      | "how can i get from garching to milbertshofen?" | *"how can i get from garching to melbourne open."* |
-    | Chatbot| macsay | 49.58      | "how can i get from garching to milbertshofen?" | *"how can i get from garching to meal prep."* |
+    | Chatbot| gtts   | 0.4376     | "how can i get from garching to milbertshofen?" | *"how can i get from garching to melbourne open."* |
+    | Chatbot| macsay | 0.5042     | "how can i get from garching to milbertshofen?" | *"how can i get from garching to meal prep."* |
     > STT: Wit.ai
+
+    > iBLEU = 1 - BLEU
 
 ## 2. Twitter Sentiment Dataset
 * Tweets have natural human error (noise)
