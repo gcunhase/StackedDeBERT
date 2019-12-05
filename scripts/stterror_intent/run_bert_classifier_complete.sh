@@ -2,14 +2,14 @@
 
 OUTPUT_DIR=../../results/results_bert_complete_earlyStopWithLoss_lower_10seeds/
 
-BS_TRAIN=16
+BS_TRAIN=8
 BS_EVAL=1
-for DATASET in snips; do
+for DATASET in chatbot; do
     echo $DATASET
-    for EPOCH in 3; do  # 30 100; do
-        echo "Training ${DATASET} dataset with ${PERC} missing for ${EPOCH} epochs"
+    for EPOCH in 3; do
+        echo "Training ${DATASET} dataset with complete data for ${EPOCH} epochs"
 
-        DATA_DIR="../../data/snips_intent_data/complete_data_with_target/"
+        DATA_DIR="../../data/intent_data/complete_data_with_target/${DATASET}/"
 
         for SEED in 1 2 3 4 5 6 7 8 9 10; do
             OUT_PATH="${OUTPUT_DIR}/${DATASET}_ep${EPOCH}_bs${BS_TRAIN}_complete_seed${SEED}/"
