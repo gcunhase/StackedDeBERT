@@ -83,4 +83,4 @@ In case you wish to use this code, please use the following citation:
 ```
 > Email for further requests or questions: `gwena.cs@gmail.com`
 
-The authors would like to thank Snips.co for their public dataset ([Snips NLU Benchmark](https://github.com/snipsco/nlu-benchmark)), and HuggingFace's [BERT PyTorch code](https://github.com/huggingface/pytorch-pretrained-BERT).
+The authors would like to thank Snips.co and Kaggle for their public datasets ([Snips NLU Benchmark](https://github.com/snipsco/nlu-benchmark) and [Sentiment140 Twitter Dataset](https://www.kaggle.com/kazanova/sentiment140)), and HuggingFace's [BERT PyTorch code](https://github.com/huggingface/pytorch-pretrained-BERT).
