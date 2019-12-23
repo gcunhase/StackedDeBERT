@@ -9,8 +9,7 @@ Repository for paper titled [*""*](https://arxiv.org/abs/).
     * Twitter Sentiment Classification
     * Incomplete Intent Classification: text with STT error
 
-* Model: Stacked Denoising BERT 
-  > BERT + DeBERT (Denoising AutoEncoder + BERT)
+* Proposed model: Stacked Denoising BERT 
 
 * Baseline models
   * [BERT](https://github.com/huggingface/pytorch-pretrained-BERT)
@@ -68,7 +67,7 @@ CUDA_VISIBLE_DEVICES=0,1 ./scripts/stterror_intent/run_stacked_debert_dae_classi
     <img src="./data/assets/results_stterror_chatbot.png" height="300" alt="Results for Chatbot Intent Dataset with STT errors">
     </p>
 
-> where iBLEU = 1-BLEU, meaning that higher scores indicate higher presence of noise
+> where iBLEU = 1-BLEU, higher scores indicate higher presence of noise
 
 ## Acknowledgment
 In case you wish to use this code, please use the following citation:
