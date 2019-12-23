@@ -60,13 +60,15 @@ CUDA_VISIBLE_DEVICES=0,1 ./scripts/stterror_intent/run_stacked_debert_dae_classi
 ## Results
 * Twitter Sentiment Corpus
     <p align="left">
-    <img src="./data/assets/results_twitter.png" height="200" alt="Results for Twitter Dataset">
+    <img src="./data/assets/results_twitter.png" height="300" alt="Results for Twitter Dataset">
     </p>
 
 * Chatbot Incomplete Intent Corpus: texts with STT Error
     <p align="left">
-    <img src="./data/assets/results_stterror_chatbot.png" height="200" alt="Results for Chatbot Intent Dataset with STT errors">
+    <img src="./data/assets/results_stterror_chatbot.png" height="300" alt="Results for Chatbot Intent Dataset with STT errors">
     </p>
+
+> where iBLEU = 1-BLEU, meaning that higher scores indicate higher presence of noise
 
 ## Acknowledgment
 In case you wish to use this code, please use the following citation:
