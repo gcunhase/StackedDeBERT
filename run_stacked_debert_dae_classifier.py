@@ -42,7 +42,7 @@ from models.stacked_debert_dae.tokenization import BertTokenizer
 from models.stacked_debert_dae.modeling import BertForSequenceClassification
 from models.stacked_debert_dae import BertAdam
 from models.stacked_debert_dae import PYTORCH_PRETRAINED_BERT_CACHE
-from models.stacked_debert_dae.autoencoder import AutoEncoder
+from models.stacked_debert_dae.denoising_mlp import AutoEncoder
 
 
 logging.basicConfig(format = '%(asctime)s - %(levelname)s - %(name)s -   %(message)s',
