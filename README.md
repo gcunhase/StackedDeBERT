@@ -1,15 +1,18 @@
 ## About
-Repository for paper titled [*""*](https://arxiv.org/abs/).
+Repository for paper titled [*"Stacked DeBERT: All Attention in Incomplete Data for Text Classification"*](https://arxiv.org/abs/).
 
 ## Contents
-[Overview](#overview) • [Requirements](#requirements) • [How to Use](#how-to-use) • [Results](#results) • [How to Cite](#acknowledgment)
+[Overview](#overview) • [Requirements](#requirements) • [How to Use](#how-to-use) • [How to Cite](#acknowledgment)
 
 ## Overview
+* Proposed model: Stacked Denoising BERT 
+    <p align="left">
+    <img src="./data/assets/model.png" height="250" alt="Model Architecture">
+    </p>
+    
 * Task: Text classification from noisy data
     * Twitter Sentiment Classification
     * Incomplete Intent Classification: text with STT error
-
-* Proposed model: Stacked Denoising BERT 
 
 * Baseline models
   * [BERT](https://github.com/huggingface/pytorch-pretrained-BERT)
@@ -54,32 +57,18 @@ CUDA_VISIBLE_DEVICES=0,1 ./scripts/twitter_sentiment/run_stacked_debert_dae_clas
 ```
 CUDA_VISIBLE_DEVICES=0,1 ./scripts/stterror_intent/run_stacked_debert_dae_classifier_stterror.sh
 ```
-> Make sure the OUTPUT directory is the same as the fine-tuned BERT or copy the BERT model to your new output dir.
-
-## Results
-* Twitter Sentiment Corpus
-    <p align="left">
-    <img src="./data/assets/results_twitter.png" height="300" alt="Results for Twitter Dataset">
-    </p>
-
-* Chatbot Incomplete Intent Corpus: texts with STT Error
-    <p align="left">
-    <img src="./data/assets/results_stterror_chatbot.png" height="300" alt="Results for Chatbot Intent Dataset with STT errors">
-    </p>
-
-> where iBLEU = 1-BLEU, higher scores indicate higher presence of noise
 
 ## Acknowledgment
 In case you wish to use this code, please use the following citation:
 
 ```
 @misc{cunha2019stackeddebert,
-   title={},
-   author={},
-   year={2019},
-   eprint={1910.},
+   title={Stacked DeBERT: All Attention in Incomplete Data for Text Classification},
+   author={Gwenaelle Cunha Sergio and Minho Lee},
+   year={2020},
+   eprint={2001.00137},
    archivePrefix={arXiv},
-   primaryClass={cs.}
+   primaryClass={cs.CL}
 }
 ```
 > Email for further requests or questions: `gwena.cs@gmail.com`
