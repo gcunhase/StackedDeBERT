@@ -62,7 +62,7 @@ CUDA_VISIBLE_DEVICES=0,1 ./scripts/stterror_intent/run_stacked_debert_dae_classi
 In case you wish to use this code, please use the following citation:
 
 ```
-@misc{cunha2019stackeddebert,
+@misc{cunha2020stackeddebert,
    title={Stacked DeBERT: All Attention in Incomplete Data for Text Classification},
    author={Gwenaelle Cunha Sergio and Minho Lee},
    year={2020},
