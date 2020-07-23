@@ -1,26 +1,12 @@
 
 INTENTION_TAGS = {
-    'snips': {'0': 'AddToPlaylist',
-              '1': 'BookRestaurant',
-              '2': 'GetWeather',
-              '3': 'PlayMusic',
-              '4': 'RateBook',
-              '5': 'SearchCreativeWork',
-              '6': 'SearchScreeningEvent'},
     'ChatbotCorpus': {'0': 'DepartureTime',
-                '1': 'FindConnection'}
+                      '1': 'FindConnection'}
 }
 
 INTENTION_TAGS_WITH_SPACE = {
-    'snips': {'0': 'AddToPlaylist',
-              '1': 'BookRestaurant',
-              '2': 'GetWeather',
-              '3': 'PlayMusic',
-              '4': 'RateBook',
-              '5': 'SearchCreativeWork',
-              '6': 'SearchScreeningEvent'},
     'ChatbotCorpus': {'0': 'DepartureTime',
-                '1': 'FindConnection'}
+                      '1': 'FindConnection'}
 }
 
 
@@ -29,13 +15,11 @@ SENTIMENT_TAGS = {'sentiment140': {'0': 'Negative',
                   }
 
 LABELS_ARRAY_INT = {
-    "snips": [0, 1, 2, 3, 4, 5, 6],
     "chatbotcorpus": [0, 1],
     "sentiment140": [0, 1],
 }
 
 LABELS_ARRAY = {
-    "snips": ["0", "1", "2", "3", "4", "5", "6"],
     "chatbotcorpus": ["0", "1"],
     "sentiment140": ["0", "1"],
 }

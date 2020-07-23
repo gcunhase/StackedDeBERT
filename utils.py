@@ -4,13 +4,8 @@ import csv
 
 
 INTENTION_TAGS = {
-    'snips': {'AddToPlaylist': 0,
-              'BookRestaurant': 1,
-              'GetWeather': 2,
-              'PlayMusic': 3,
-              'RateBook': 4,
-              'SearchCreativeWork': 5,
-              'SearchScreeningEvent': 6}
+    'ChatbotCorpus': {'DepartureTime': 0,
+                      'FindConnection': 1},
 }
 
 SENTIMENT_TAGS = {'Sentiment140': {'Negative': 0,
