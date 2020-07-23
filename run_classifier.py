@@ -36,7 +36,7 @@ import torch
 from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
 from torch.utils.data.distributed import DistributedSampler
 from sklearn.metrics import confusion_matrix, precision_recall_fscore_support
-from models.plot_confusion_matrix import plot_confusion_matrix
+from plot_confusion_matrix import plot_confusion_matrix
 
 from models.pytorch_pretrained_bert.tokenization import BertTokenizer
 from models.pytorch_pretrained_bert import BertForSequenceClassification
@@ -397,22 +397,22 @@ def main():
     args = parser.parse_args()
 
     processors = {
-        "snips_intent": SentenceClassificationProcessor,
+        "chatbot_intent": SentenceClassificationProcessor,
         "sentiment140_sentiment": SentenceClassificationProcessor,
     }
 
     num_labels_task = {
-        "snips_intent": 7,
+        "chatbot_intent": 2,
         "sentiment140_sentiment": 2,
     }
 
     labels_array = {
-        "snips_intent": ["0", "1", "2", "3", "4", "5", "6"],
+        "chatbot_intent": ["0", "1"],
         "sentiment140_sentiment": ["0", "1"],
     }
 
     labels_array_int = {
-        "snips_intent": [0, 1, 2, 3, 4, 5, 6],
+        "chatbot_intent": [0, 1],
         "sentiment140_sentiment": [0, 1],
     }
 
