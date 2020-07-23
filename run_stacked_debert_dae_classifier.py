@@ -35,8 +35,8 @@ import numpy as np
 import torch
 from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
 from torch.utils.data.distributed import DistributedSampler
-from sklearn.metrics import confusion_matrix, precision_recall_fscore_support
-from models.plot_confusion_matrix import plot_confusion_matrix
+from sklearn.metrics import confusion_matrix, precision_recall_fscore_support, f1_score
+from plot_confusion_matrix import plot_confusion_matrix
 
 from models.stacked_debert_dae.tokenization import BertTokenizer
 from models.stacked_debert_dae.modeling import BertForSequenceClassification
@@ -1029,6 +1029,7 @@ def main():
                            global_step, autoencoder, model_second_stack, batches=None)
 
         # Save model information
+        # CHECK IF target and predicted need to be array
         labels = labels_array_int[task_name]
         result['precision_macro'], result['recall_macro'], result['f1_macro'], support =\
             precision_recall_fscore_support(target, predicted, average='macro', labels=labels)
@@ -1042,13 +1043,15 @@ def main():
         if not args.do_train:
             output_eval_filename = "eval_results_test"
 
-        target_asarray = np.asarray(target)
-        predicted_asarray = np.asarray(predicted)
+        # target_asarray = np.asarray(target)
+        # predicted_asarray = np.asarray(predicted)
         classes = np.asarray(labels_array[task_name])
         classes_idx = None
         if 'webapplications' in task_name:
             classes = np.asarray(['0', '1', '3', '4', '5', '6', '7'])  # there is no class 2 in test
             classes_idx = np.asarray([0, 1, 2, 3, 4, 5, 6])
+        target_asarray = np.asarray(target)
+        predicted_asarray = np.asarray(predicted)
         ax, fig = plot_confusion_matrix(target_asarray, predicted_asarray, classes=classes,
                                         normalize=True, title='Normalized confusion matrix', rotate=False,
                                         classes_idx=classes_idx)

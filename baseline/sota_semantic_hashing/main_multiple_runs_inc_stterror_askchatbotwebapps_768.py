@@ -126,7 +126,7 @@ for tts_stt in tts_stt_arr:
                       'n_size': 3,  # n-gram size
                       'alphabet': 'abcdefghijklmnopqrstuvwxyz#',
                       # fix the alphabet. Note, we assume that capital letters are not in use
-                      'seed': 1,  # for reproducibility
+                      'seed': run,  # 1, for reproducibility
                       'results_dir': results_root_dir,
                       'data_dir': root_data_dir + data_dir_name,
                       'log_csv_filename': data_name + '_log.csv',
@@ -149,7 +149,7 @@ for tts_stt in tts_stt_arr:
             results_dir = params['results_dir']
             ensure_dir(results_dir)
 
-            np.random.seed()  # params['seed'])
+            np.random.seed(seed=params['seed'])
             HD_aphabet = 2 * (np.random.randn(len(aphabet),
                                               N) < 0) - 1  # generates bipolar {-1, +1}^N HD vectors; one random HD vector per symbol in the alphabet
 

@@ -254,10 +254,10 @@ class MeraDataset():
                 Xs.append(sentence)
                 ys.append(y)
 
-        with open("./datasets/KL/Chatbot/train_augmented.csv", 'w', encoding='utf8') as csvFile:
-            fileWriter = csv.writer(csvFile, delimiter='\t')
-            for i in range(0, len(Xs) - 1):
-                fileWriter.writerow([Xs[i] + '\t' + ys[i]])
+        #with open("./datasets/KL/Chatbot/train_augmented.csv", 'w', encoding='utf8') as csvFile:
+        #    fileWriter = csv.writer(csvFile, delimiter='\t')
+        #    for i in range(0, len(Xs) - 1):
+        #        fileWriter.writerow([Xs[i] + '\t' + ys[i]])
 
         return Xs, ys
 

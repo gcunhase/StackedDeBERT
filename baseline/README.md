@@ -13,7 +13,7 @@ pip install tqdm boto3 requests matplotlib ftfy pandas unicodecsv pandas
 
 ## Know-Your-Intent
 * Python 3.5/3.6 (otherwise there's a `expected unicode but received string` error)
-* Paper: *Subword Semantic Hashing for Intent Classification on Small Datasets* [[arXiv](https://arxiv.org/abs/1810.07150)] [[code](https://github.com/kumar-shridhar/Know-Your-Intent/blob/master/updated_semhash_pipeline.ipynb)]
+* Paper: *Subword Semantic Hashing for Intent Classification on Small Datasets* [[arXiv](https://arxiv.org/abs/1810.07150)] [[code](https://github.com/kumar-shridhar/Know-Your-Intent/blob/master/semhash_pipeline.ipynb)]
 * Requirements
 ```
 conda install -c conda-forge spacy

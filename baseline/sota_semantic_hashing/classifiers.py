@@ -43,6 +43,9 @@ def benchmark(clf, clf_name, X_train, y_train, X_test, y_test, target_names,
     log_csv_filename = params['log_csv_filename']
     log_txt_filename = params['log_txt_filename']
     log_f1_filename = params['log_f1_filename']
+    log_f1_macro_filename = params['log_f1_macro_filename']
+    log_precision_macro_filename = params['log_precision_macro_filename']
+    log_recall_macro_filename = params['log_recall_macro_filename']
 
     print('_' * 80)
     print("Training: ")
@@ -60,10 +63,16 @@ def benchmark(clf, clf_name, X_train, y_train, X_test, y_test, target_names,
     score = metrics.accuracy_score(y_test, pred)
     f1_score = metrics.f1_score(y_test, pred, average='weighted')
     f1_micro_score = metrics.f1_score(y_test, pred, average='micro')
+    f1_macro_score = metrics.f1_score(y_test, pred, average='macro')
+    precision_macro_score = metrics.precision_score(y_test, pred, average='macro')
+    recall_macro_score = metrics.recall_score(y_test, pred, average='macro')
 
     # Accuracy and F1-micro scores are the same
     print("accuracy:   %0.3f" % score)
     print("F1-micro score:   %0.3f" % f1_micro_score)
+    print("F1-macro score:   %0.3f" % f1_macro_score)
+    print("Precision-macro score:   %0.3f" % precision_macro_score)
+    print("Recall-macro score:   %0.3f" % recall_macro_score)
     # print("Accuracy: %0.3f (+/- %0.3f)" % (score.mean(), score.std() * 2))
 
     if hasattr(clf, 'coef_'):
@@ -107,26 +116,34 @@ def benchmark(clf, clf_name, X_train, y_train, X_test, y_test, target_names,
     with open("{}/{}.txt".format(results_dir, log_f1_filename), 'a', encoding='utf8') as txtFile:
         txtFile.write("{clf_name}: {f1_micro}\n".format(clf_name=clf_name, f1_micro=f1_micro_score))
 
+    with open("{}/{}.txt".format(results_dir, log_f1_macro_filename), 'a', encoding='utf8') as txtFile:
+        txtFile.write("{clf_name}: {f1_macro}\n".format(clf_name=clf_name, f1_macro=f1_macro_score))
+    with open("{}/{}.txt".format(results_dir, log_precision_macro_filename), 'a', encoding='utf8') as txtFile:
+         txtFile.write("{clf_name}: {precision_macro}\n".format(clf_name=clf_name, precision_macro=precision_macro_score))
+    with open("{}/{}.txt".format(results_dir, log_recall_macro_filename), 'a', encoding='utf8') as txtFile:
+        txtFile.write("{clf_name}: {recall_macro}\n".format(clf_name=clf_name, recall_macro=recall_macro_score))
+
     clf_descr = clf_name  # str(clf).split('(')[0]
-    return clf_descr, score, f1_micro_score, train_time, test_time, f1_score
+    return clf_descr, score, f1_micro_score, train_time, test_time, f1_score, f1_macro_score, precision_macro_score, recall_macro_score
 
 
 def plot_results(results, benchmark_dataset, results_dir, log_f1_filename, plot=True):
     # make some plots
     indices = np.arange(len(results))
 
-    results = [[x[i] for x in results] for i in range(5)]
+    results = [[x[i] for x in results] for i in range(9)]
 
-    clf_names, score, f1_micro_score, training_time, test_time = results
+    clf_names, score, f1_micro_score, training_time, test_time, f1_score, f1_macro_score, precision_macro_score, recall_macro_score = results
     training_time = np.array(training_time) / np.max(training_time)
     test_time = np.array(test_time) / np.max(test_time)
 
     plt.figure(figsize=(12, 8))
     plt.title("Score for {} Corpus".format(benchmark_dataset))
-    plt.barh(indices, f1_micro_score, .2, label="F1 score", color='navy')
-    plt.barh(indices + .3, training_time, .2, label="Training time",
+    plt.barh(indices, f1_micro_score, .15, label="F1 score - micro", color='navy')
+    plt.barh(indices + .2, f1_macro_score, .15, label="F1 score - macro", color='#1f77b4')
+    plt.barh(indices + .4, training_time, .15, label="Training time",
              color='c')
-    plt.barh(indices + .6, test_time, .2, label="Test time", color='darkorange')
+    plt.barh(indices + .6, test_time, .15, label="Test time", color='darkorange')
     plt.yticks(())
     plt.legend(loc='best')
     plt.subplots_adjust(left=.25)

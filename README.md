@@ -22,6 +22,7 @@ Repository for paper titled [*"Stacked DeBERT: All Attention in Incomplete Data 
 ## Requirements
 Python 3.6 (3.7.3 tested), PyTorch 1.0.1.post2, CUDA 9.0 or 10.1
 ```
+pip install --default-timeout=1000 torch==1.0.1.post2
 pip install -r requirements.txt
 conda install pytorch torchvision cudatoolkit=9.0 -c pytorch
 ```
@@ -46,7 +47,7 @@ CUDA_VISIBLE_DEVICES=0,1 ./scripts/stterror_intent/run_bert_classifier_stterror.
 ```
 > Script for noisy data (*stterror*). Script for clean, non-noisy data, is also available (*complete*).
 
-### 3. Train Stacked DeBERT
+### 3. Train/test model
 * Training on Twitter Corpus
 ```
 CUDA_VISIBLE_DEVICES=0,1 ./scripts/twitter_sentiment/run_stacked_debert_dae_classifier_twitter_inc_with_corr.sh
@@ -56,6 +57,12 @@ CUDA_VISIBLE_DEVICES=0,1 ./scripts/twitter_sentiment/run_stacked_debert_dae_clas
 * Training on NLU Evaluation Corpora for TTS=gtts/macsay and STT=witai and autoencoder epochs 100-1000.
 ```
 CUDA_VISIBLE_DEVICES=0,1 ./scripts/stterror_intent/run_stacked_debert_dae_classifier_stterror.sh
+```
+
+### 4. Test model
+* Testing on NLU Evaluation Corpora
+```
+CUDA_VISIBLE_DEVICES=0 python run_stacked_debert_dae_classifier.py --seed 1 --task_name "sentiment140_sentiment" --save_best_model --do_eval --do_lower_case --data_dir ./data/twitter_sentiment_data/sentiment140/ --bert_model bert-base-uncased --max_seq_length 128 --train_batch_size 4 --eval_batch_size 1 --learning_rate 2e-5 --num_train_epochs_autoencoder 3 --num_train_epochs 3 --output_dir_first_layer "./results/test/results_stacked_debert_dae_earlyStopWithEvalLoss_twitter_10seeds/inc_with_corr_sentences_TestOnlyIncorrect/sentiment140_ep3_bs4_inc_with_corr_TestOnlyIncorrect_seed1_first_layer_epae1000/" --output_dir "./results/test/results_stacked_debert_dae_earlyStopWithEvalLoss_twitter_10seeds/inc_with_corr_sentences_TestOnlyIncorrect/sentiment140_ep3_bs4_inc_with_corr_TestOnlyIncorrect_seed1_second_layer_epae1000/"
 ```
 
 ## Acknowledgment

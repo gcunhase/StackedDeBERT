@@ -626,21 +626,24 @@ def main():
                            global_step)
 
         # Save model information
+        # CHECK IF target and predicted need to be array
+        target_asarray = np.asarray(target)
+        predicted_asarray = np.asarray(predicted)
         labels = labels_array_int[task_name]
         result['precision_macro'], result['recall_macro'], result['f1_macro'], support =\
-            precision_recall_fscore_support(target, predicted, average='macro', labels=labels)
+            precision_recall_fscore_support(target_asarray, predicted_asarray, average='macro', labels=labels)
         result['precision_micro'], result['recall_micro'], result['f1_micro'], support =\
-            precision_recall_fscore_support(target, predicted, average='micro', labels=labels)
+            precision_recall_fscore_support(target_asarray, predicted_asarray, average='micro', labels=labels)
         result['precision_weighted'], result['recall_weighted'], result['f1_weighted'], support =\
-            precision_recall_fscore_support(target, predicted, average='weighted', labels=labels)
-        result['confusion_matrix'] = confusion_matrix(target, predicted, labels=labels).tolist()
+            precision_recall_fscore_support(target_asarray, predicted_asarray, average='weighted', labels=labels)
+        result['confusion_matrix'] = confusion_matrix(target_asarray, predicted_asarray, labels=labels).tolist()
 
         output_eval_filename = "eval_results"
         if not args.do_train:
             output_eval_filename = "eval_results_test"
 
-        target_asarray = np.asarray(target)
-        predicted_asarray = np.asarray(predicted)
+        #target_asarray = np.asarray(target)
+        #predicted_asarray = np.asarray(predicted)
         classes = np.asarray(labels_array[task_name])
         classes_idx = None
         if 'webapplications' in task_name:

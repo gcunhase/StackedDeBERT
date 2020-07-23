@@ -60,8 +60,8 @@ Code Source: https://github.com/kumar-shridhar/Know-Your-Intent/blob/master/upda
 '''
 
 print(sys.path)
-# nlp = spacy.load('en_core_web_lg')
-nlp = spacy.load('/mnt/gwena/anaconda3/lib/python3.7/site-packages/spacy/data/en/en_core_web_sm-2.1.0')
+nlp = spacy.load('en_core_web_lg')
+# nlp = spacy.load('/mnt/gwena/anaconda3/lib/python3.7/site-packages/spacy/data/en/en_core_web_sm-2.1.0')
 
 
 def read_CSV_datafile(filename):
@@ -93,7 +93,7 @@ def data_for_training():
 data_type_arr = ["corr", "inc", "inc_with_corr"]
 run_arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 dataset_name = 'sentiment140'
-results_root_dir_tmp = './results/results_semhash_twitter_{}_10runs'.format(dataset_name)
+results_root_dir_tmp = './results/results_trigram_hash_twitter_{}_768_10runs_macro2'.format(dataset_name)
 ensure_dir(results_root_dir_tmp)
 
 for data_type in data_type_arr:
@@ -128,13 +128,16 @@ for data_type in data_type_arr:
                   'n_size': 3,  # n-gram size
                   'alphabet': 'abcdefghijklmnopqrstuvwxyz#',
                   # fix the alphabet. Note, we assume that capital letters are not in use
-                  'seed': 1,  # for reproducibility
+                  'seed': run,  # 1, for reproducibility
                   'results_dir': results_root_dir,
                   'data_dir': data_dir_name,
                   'log_csv_filename': data_name + '_log.csv',
                   'log_txt_filename': data_name + '_log.txt',
                   'png_plot_filename': data_name + '_plot.png',
-                  'log_f1_filename': data_name + '_f1.txt'
+                  'log_f1_filename': data_name + '_f1.txt',
+                  'log_f1_macro_filename': data_name + '_f1_macro.txt',
+                  'log_precision_macro_filename': data_name + '_precision_macro.txt',
+                  'log_recall_macro_filename': data_name + '_recall_macro.txt'
                   }
 
         benchmark_dataset = params['benchmark_dataset']
@@ -151,9 +154,9 @@ for data_type in data_type_arr:
         results_dir = params['results_dir']
         ensure_dir(results_dir)
 
-        np.random.seed()  # params['seed'])
-        HD_aphabet = 2 * (np.random.randn(len(aphabet),
-                                          N) < 0) - 1  # generates bipolar {-1, +1}^N HD vectors; one random HD vector per symbol in the alphabet
+        #np.random.seed()  # params['seed'])
+        np.random.seed(seed=params['seed'])
+        HD_aphabet = 2 * (np.random.randn(len(aphabet), N) < 0) - 1  # generates bipolar {-1, +1}^N HD vectors; one random HD vector per symbol in the alphabet
 
         if benchmark_dataset == "sentiment140":
             intent_dict = {"Negative": 0, "Positive": 1}
