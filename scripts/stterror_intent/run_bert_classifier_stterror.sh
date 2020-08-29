@@ -11,7 +11,7 @@ for DATASET in chatbot; do
             for EPOCH in 3; do
                 echo "Training ${DATASET} dataset with ${TTS}-${STT} missing for ${EPOCH} epochs"
 
-                DATA_DIR="../data/intent_data/stterror_data/${DATASET}/${TTS}_${STT}/"
+                DATA_DIR="../../data/intent_data/stterror_data/${DATASET}/${TTS}_${STT}/"
 
                 for SEED in 1 2 3 4 5 6 7 8 9 10; do
                     OUT_PATH="${OUTPUT_DIR}/${DATASET}/${TTS}_${STT}/${DATASET}_ep${EPOCH}_bs${BS_TRAIN}_seed${SEED}/"

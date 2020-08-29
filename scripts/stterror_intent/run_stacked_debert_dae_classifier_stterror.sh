@@ -8,7 +8,7 @@ BS_TRAIN=8
 BS_EVAL=1
 for TTS in "gtts" "macsay"; do
    for STT in "witai"; do
-      DATA_DIR="../data/intent_data/stterror_data/${DATASET}/${TTS}_${STT}/"
+      DATA_DIR="../../data/intent_data/stterror_data/${DATASET}/${TTS}_${STT}/"
       EPOCH_1st=3
       EPOCH=3
       for EPOCH_AE in 100 1000; do
