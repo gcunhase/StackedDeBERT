@@ -534,7 +534,7 @@ def autoencoder_layer(train_examples, train_examples_target, model_first_layer, 
         autoencoder = torch.nn.DataParallel(autoencoder)
 
     # Prepare optimizer
-    optimizer = torch.optim.Adam(autoencoder.parameters(), lr=0.001, weight_decay=1e-5)
+    optimizer = torch.optim.Adam(autoencoder.parameters(), lr=args.autoencoder_lr, weight_decay=1e-5)
     criterion = torch.nn.MSELoss()
 
     if args.do_train_second_layer:
@@ -798,6 +798,10 @@ def main():
                         default=5e-5,
                         type=float,
                         help="The initial learning rate for Adam.")
+    parser.add_argument("--autoencoder_lr",
+                        default=0.001,
+                        type=float,
+                        help="The initial learning rate for the denoising layer.")
     parser.add_argument("--num_train_epochs",
                         default=3.0,
                         type=float,
