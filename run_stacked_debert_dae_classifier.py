@@ -755,7 +755,7 @@ def main():
                         default=None,
                         type=str,
                         required=True,
-                        help="The output_cnn_hter_cr directory where the model predictions and checkpoints will be written.")
+                        help="The output directory where the model predictions and checkpoints will be written.")
     parser.add_argument("--output_dir_first_layer",
                         default=None,
                         type=str,
@@ -763,6 +763,14 @@ def main():
     parser.add_argument("--max_noise",
                         default=0.1,
                         type=float)
+    parser.add_argument("--eval_output_filename",
+                        default=None,
+                        type=str,
+                        help="Directory to save evaluations.")
+    parser.add_argument("--eval_output_dir",
+                        default=None,
+                        type=str,
+                        help="Directory to save evaluations.")
 
     ## Other parameters
     parser.add_argument("--max_seq_length",
@@ -894,12 +902,19 @@ def main():
         raise ValueError("At least one of `do_train` or `do_eval` must be True.")
 
     if os.path.exists(args.output_dir) and os.listdir(args.output_dir) and args.do_train_second_layer:
-        raise ValueError("Output directory ({}) already exists and is not empty.".format(args.output_dir))
-    os.makedirs(args.output_dir, exist_ok=True)
+        # raise ValueError("Output directory ({}) already exists and is not empty.".format(args.output_dir))
+        print("Output directory ({}) already exists and is not empty.".format(args.output_dir))
+    else:
+        os.makedirs(args.output_dir, exist_ok=True)
 
     if os.path.exists(args.output_dir_first_layer) and os.listdir(args.output_dir_first_layer) and args.do_train:
-        raise ValueError("Output directory ({}) already exists and is not empty.".format(args.output_dir_first_layer))
-    os.makedirs(args.output_dir_first_layer, exist_ok=True)
+        # raise ValueError("Output directory ({}) already exists and is not empty.".format(args.output_dir_first_layer))
+        print("Output directory ({}) already exists and is not empty.".format(args.output_dir_first_layer))
+    else:
+        os.makedirs(args.output_dir_first_layer, exist_ok=True)
+
+    if args.eval_output_dir is not None:
+        os.makedirs(args.eval_output_dir, exist_ok=True)
 
     task_name = args.task_name.lower()
 
@@ -1046,6 +1061,8 @@ def main():
         output_eval_filename = "eval_results"
         if not args.do_train:
             output_eval_filename = "eval_results_test"
+        if args.eval_output_filename is not None:
+            output_eval_filename += "_" + args.eval_output_filename
 
         # target_asarray = np.asarray(target)
         # predicted_asarray = np.asarray(predicted)
@@ -1059,13 +1076,16 @@ def main():
         ax, fig = plot_confusion_matrix(target_asarray, predicted_asarray, classes=classes,
                                         normalize=True, title='Normalized confusion matrix', rotate=False,
                                         classes_idx=classes_idx)
-        fig.savefig(os.path.join(args.output_dir, output_eval_filename + "_confusion.png"))
+        output_dir = args.output_dir
+        if args.eval_output_dir is not None:
+            output_dir = args.eval_output_dir
+        fig.savefig(os.path.join(output_dir, output_eval_filename + "_confusion.png"))
 
-        output_eval_file = os.path.join(args.output_dir, output_eval_filename + ".json")
+        output_eval_file = os.path.join(output_dir, output_eval_filename + ".json")
         with open(output_eval_file, "w") as writer:
             json.dump(result, writer, indent=2)
 
-        output_eval_file = os.path.join(args.output_dir, output_eval_filename + ".txt")
+        output_eval_file = os.path.join(output_dir, output_eval_filename + ".txt")
         with open(output_eval_file, "w") as writer:
             logger.info("***** Eval results *****")
             for key in sorted(result.keys()):
@@ -1076,10 +1096,12 @@ def main():
         output_eval_filename = "eval_examples"
         if not args.do_train:
             output_eval_filename = "eval_examples_test"
+        if args.eval_output_filename is not None:
+            output_eval_filename += "_" + args.eval_output_filename
 
         dev_dict = {'sentence': text, 'label_target': target, 'label_prediction': predicted}
         keys = ['sentence', 'label_target', 'label_prediction']
-        output_examples_file = os.path.join(args.output_dir, output_eval_filename + ".tsv")
+        output_examples_file = os.path.join(output_dir, output_eval_filename + ".tsv")
         file_test = open(output_examples_file, 'wt')
         dict_writer = csv.writer(file_test, delimiter='\t')
         dict_writer.writerow(keys)
@@ -1090,7 +1112,7 @@ def main():
         # Mismatched example sentences and original and predicted labels
         dev_dict = {'sentence': text_mismatch, 'label_target': target_mismatch, 'label_prediction': predicted_mismatch}
         keys = ['sentence', 'label_target', 'label_prediction']
-        output_examples_file = os.path.join(args.output_dir, output_eval_filename + "_mismatch.tsv")
+        output_examples_file = os.path.join(output_dir, output_eval_filename + "_mismatch.tsv")
         file_test = open(output_examples_file, 'wt')
         dict_writer = csv.writer(file_test, delimiter='\t')
         dict_writer.writerow(keys)
