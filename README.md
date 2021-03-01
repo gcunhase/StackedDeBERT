@@ -69,13 +69,16 @@ CUDA_VISIBLE_DEVICES=0 python run_stacked_debert_dae_classifier.py --seed 1 --ta
 In case you wish to use this code, please use the following citation:
 
 ```
-@misc{cunha2020stackeddebert,
-   title={Stacked DeBERT: All Attention in Incomplete Data for Text Classification},
-   author={Gwenaelle Cunha Sergio and Minho Lee},
-   year={2020},
-   eprint={2001.00137},
-   archivePrefix={arXiv},
-   primaryClass={cs.CL}
+@article{CUNHASERGIO202187,
+    title = "Stacked DeBERT: All attention in incomplete data for text classification",
+    author = "Gwenaelle {Cunha Sergio} and Minho Lee",
+    journal = "Neural Networks",
+    volume = "136",
+    pages = "87 - 96",
+    year = "2021",
+    issn = "0893-6080",
+    doi = "https://doi.org/10.1016/j.neunet.2020.12.018",
+    url = "http://www.sciencedirect.com/science/article/pii/S0893608020304433"
 }
 ```
 > Email for further requests or questions: `gwena.cs@gmail.com`

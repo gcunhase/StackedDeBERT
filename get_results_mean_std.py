@@ -8,13 +8,13 @@ import numpy as np
 
 root_name = './results_thesis/results_stacked_debert_dae_earlyStopWithLoss_lower_STTerror/'
 #root_name = './results_thesis/results_stacked_debert_dae_complete_earlyStopWithEvalLoss/'
-stt_error, dataname, epoch, epae, lrae, bs, tts_stt_type = [True, "chatbot", 100, 100, '0.00001', 8, 'macsay_witai']
+stt_error, dataname, epoch, epae, lrae, bs, tts_stt_type = [True, "chatbot", 3, 1000, '0.0001', 8, 'gtts_witai']
 
 prefix = ''
 if stt_error:
     prefix = tts_stt_type + '/'
 
-if float(lrae) < 0.001:
+if float(lrae) < 0.01:
     root_dir = '{root_name}/{dataname}/{prefix}bs{bs}_epae{epae}_lrae{lrae}/{dataname}_ep{ep}_bs{bs}_'.\
         format(root_name=root_name, dataname=dataname, prefix=prefix, bs=bs, epae=epae, ep=epoch, lrae=lrae)
 else:
