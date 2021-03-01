@@ -7,3 +7,4 @@ baseline/sap/*.json
 baseline/sota_semantic_hashing/results/*
 results/
 results_thesis/
+*cached_*
