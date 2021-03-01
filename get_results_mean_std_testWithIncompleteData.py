@@ -6,7 +6,7 @@ import numpy as np
 
 root_name = './results_thesis/results_stacked_debert_dae_complete_earlyStopWithEvalLoss/test_with_incomplete/'
 
-dataname, epoch, epae, lrae, bs, tts_stt_type = ["chatbot", 3, 1000, 0.001, 8, 'macsay_witai']
+dataname, epoch, epae, lrae, bs, tts_stt_type = ["chatbot", 3, 100, 0.0001, 8, 'gtts_witai']
 
 if lrae < 0.001:
     root_dir = '{root_name}/{dataname}/bs{bs}_epae{epae}_lrae{lrae}/{dataname}_ep{ep}_bs{bs}_'.\
